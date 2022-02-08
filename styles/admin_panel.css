@@ -7,3 +7,7 @@
 #product_basic_info * {
     margin-top: 10px;
 }
+
+#shoes_material {
+    display: none;
+}
