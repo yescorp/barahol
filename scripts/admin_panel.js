@@ -3,10 +3,14 @@ $(document).ready(function(){
         if($(this).val() == 'clothes'){
             $("#shoes_material").hide();
             $("#clothes_material").show();
+            $("#product_pattern_label").show();
+            $("#product_pattern").show();
         }
         else{
             $("#shoes_material").show();
             $("#clothes_material").hide();
+            $("#product_pattern_label").hide();
+            $("#product_pattern").hide();
         }
     });
 
@@ -39,3 +43,39 @@ $(document).ready(function(){
         }
     });
 });
+
+var materialCount = 2;
+
+function addMaterial(){
+    let sel = document.createElement("select");
+    sel.id = "clothes_material" + materialCount;
+    
+    let opt = document.createElement("option");
+    opt.value = "value";
+    opt.text = "text";
+
+    sel.append(opt);
+
+    var inp = document.createElement("input");
+    inp.type = "number";
+    inp.id = "clothes_material_percent" + materialCount;
+    inp.placeholder = "процентов";
+
+    $("#clothes_material").append(sel);
+    
+    $("#clothes_material").append(inp);
+    console.log(materialCount);
+    materialCount++;
+}
+
+function removeLastMaterial(){
+    materialCount--;
+    if(materialCount == 1){
+        materialCount++;
+        return;
+    }
+    $("input").remove("#clothes_material_percent" + materialCount);
+    $("select").remove("#clothes_material" + materialCount);
+    
+    console.log(materialCount);
+}

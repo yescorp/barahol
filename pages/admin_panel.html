@@ -12,7 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form    method="">
         <div id="product_basic_info">
             <label for="product_name">Название продукта</label> 
             <input type="text" id="product_name" name="product_name">
@@ -61,10 +61,14 @@
                 </select>
             </div>
             <div id="clothes_material">
-                <select name="product_material" id="product_material" style="width: 100%">
+                <button type="button" onclick="addMaterial()" style="width: 40%">+</button>
+                
+                <button type="button" onclick="removeLastMaterial()" style="width: 40%">-</button>
+                <select name="clothes_material1" id="clothes_material1" style="width: 40%">
                     <option value="clothes">Материал одежды...</option>
                 </select>
-                <input type="text", placeholder="процентов" style="width: 100%">
+                <input type="text", placeholder="процентов" style="width: 40%">
+                
             </div>
             <label for="product_color">Цвет</label> 
             <div>
@@ -86,7 +90,7 @@
                 <option value="">Деловой</option>
                 <option value="">Вечерний</option>
             </select>
-            <label for="product_pattern">Узор</label>
+            <label for="product_pattern" id="product_pattern_label">Узор</label>
             <select name="product_pattern" id="product_pattern">
                 <option value="male">Узор</option>
             </select>
