@@ -1,6 +1,5 @@
-#product_basic_info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+form {
+    margin: 20px auto;
     width: 500px;
 }
 
@@ -10,4 +9,23 @@
 
 #shoes_material {
     display: none;
+}
+
+.button_group {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    align-items: stretch;
+}
+
+.btn {
+    flex-grow: 1;
+}
+
+.product_type {
+    background-color: gray !important;
+}
+
+.selected_product_type {
+    background-color: cornflowerblue !important;
 }
