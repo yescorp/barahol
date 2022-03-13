@@ -71,9 +71,6 @@ button.btn.btn-hide {
     background-color: #994a00
 }
 
-.navbar {
-    display: inline-flex
-}
 
 .pagination .page-item .page-link {
     color: #333;

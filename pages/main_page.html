@@ -3,16 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Barahol</title>
-  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="\styles\style2.css">
-  <link rel="stylesheet" href="\styles\style.css">
- 
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="/styles/header_nav.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+
+
+
+
+
 
 
 </head>
 <body>
+  <nav class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
+    <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
 <!-- partial:index.partial.html -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">Barahol'</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +75,7 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -88,7 +124,7 @@
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
-          <h5> <a href="#" class="text-dark">Awesome product</a></h5>
+          <h5> <a href="/pages/product-page.html" class="text-dark">Awesome product</a></h5>
           <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           <ul class="list-inline small">
             <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
@@ -166,7 +202,7 @@
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
-          <h5> <a href="#" class="text-dark">Awesome product</a></h5>
+          <h5> <a href="/pages/filter-page.html" class="text-dark">Awesome product</a></h5>
           <p class="small text-muted font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           <ul class="list-inline small">
             <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
@@ -316,18 +352,7 @@
 
 <footer class="footer-02">
   <div class="container2">
-    <div class="row justify-content-center">
-      <div class="col-10 col-lg-6">
-        <div class="subscribe mb-5">
-          <form action="#" class="subscribe-form">
-            <div class="form-group d-flex">
-              <input type="text" class="form-control rounded-left" placeholder="Enter email address">
-              <input type="submit" value="Subscribe" class="form-control submit px-3">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-md-4 col-lg-5">
         <div class="row">
@@ -444,7 +469,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 <!-- partial -->
+
   <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src="/js/header_nav.js"></script>
 </body>
 </html>
