@@ -6,6 +6,7 @@
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
   <link rel="stylesheet" href="/styles/footer.css">
   <link rel="stylesheet" href="/styles/header_nav.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" /> -->
 
 
 
@@ -15,8 +16,8 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
-    <a class="navbar-brand navbar-logo" href="#">Barahol'</a>
+  <nav id="menu"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
+    <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
     <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
     </button>
@@ -24,58 +25,27 @@
         <ul class="navbar-nav ml-auto">
             <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                <a class="nav-link" href="main_page.html#hot"><i class="fas fa-tachometer-alt"></i>Горячие предложения</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+                <a class="nav-link" href="main_page.html#category"><i class="far fa-address-book"></i>Катеогрии</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+                <a class="nav-link" href="main_page.html#season"><i class="far fa-clone"></i>Сезоны</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+                <a class="nav-link" href="main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+                <a class="nav-link" href="login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+                <a class="nav-link" href="login-page.html"><i class="far fa-copy"></i>Регистрация</a>
             </li>
         </ul>
     </div>
 </nav>
 
-
-
-<!-- partial:index.partial.html -->
-<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Barahol'</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Главная</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Категория</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">О нас</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">FAQ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pages/login-page.html">Вход</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> -->
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -116,7 +86,7 @@
 
 
 
-<h2 class="font-weight-bold mb-2">Горячие предложения</h2>
+<h2 id = "hot" class="font-weight-bold mb-2">Горячие предложения</h2>
   <br>
   
   <div class="row pb-5 mb-4">
@@ -194,7 +164,7 @@
 
 
   <br>
-  <h2 class="font-weight-bold mb-2">Категории</h2>
+  <h2 id="category" class="font-weight-bold mb-2">Категории</h2>
   <br>
   
   <div class="row pb-5 mb-4">
@@ -275,7 +245,7 @@
 
 
   <br>
-  <h2 class="font-weight-bold mb-2">Сезоны</h2>
+  <h2 id="season" class="font-weight-bold mb-2">Сезоны</h2>
   <br>
   
   <div class="row pb-5 mb-4">
@@ -350,7 +320,7 @@
 </div>
 
 
-<footer class="footer-02">
+<footer id="footer" class="footer-02">
   <div class="container2">
 
     <div class="row">
@@ -366,7 +336,7 @@
       <div class="col-md-8 col-lg-7">
         <div class="row">
           <div class="col-md-3 mb-md-0 mb-4 border-left">
-            <h2 class="footer-heading">Discover</h2>
+            <h2 class="footer-heading">Контакты</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Buy &amp; Sell</a></li>
               <li><a href="#" class="py-1 d-block">Merchant</a></li>
@@ -375,7 +345,7 @@
             </ul>
           </div>
           <div class="col-md-3 mb-md-0 mb-4 border-left">
-            <h2 class="footer-heading">About</h2>
+            <h2 class="footer-heading">О нас</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Staff</a></li>
               <li><a href="#" class="py-1 d-block">Team</a></li>
@@ -384,7 +354,7 @@
             </ul>
           </div>
           <div class="col-md-3 mb-md-0 mb-4 border-left">
-            <h2 class="footer-heading">Resources</h2>
+            <h2 class="footer-heading">Ресурсы</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Security</a></li>
               <li><a href="#" class="py-1 d-block">Global</a></li>
@@ -393,7 +363,7 @@
             </ul>
           </div>
           <div class="col-md-3 mb-md-0 mb-4 border-left">
-            <h2 class="footer-heading">Social</h2>
+            <h2 class="footer-heading">Соц-сети</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Facebook</a></li>
               <li><a href="#" class="py-1 d-block">Twitter</a></li>
@@ -430,7 +400,7 @@
       <div class="col-md-6 col-lg-8">
 
         <p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |<i class="ion-ios-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Barahol.kz</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |<i class="ion-ios-heart" aria-hidden="true"></i> by <a href="" target="_blank">Barahol.kz</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
       </div>
       <div class="col-md-6 col-lg-4 text-md-right">
@@ -466,12 +436,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
-
-
 <!-- partial -->
 
   <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 <script src="/js/header_nav.js"></script>
+
+
+
 </body>
 </html>
