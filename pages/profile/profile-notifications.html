@@ -11,35 +11,38 @@
     <title>Профиль</title>
 </head>
 <body>
-    <nav id="menu"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
-        <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
-        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/main_page.html#hot"><i class="fas fa-tachometer-alt"></i>Горячие предложения</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/pages/main_page.html#category"><i class="far fa-address-book"></i>Катеогрии</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/main_page.html#season"><i class="far fa-clone"></i>Сезоны</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pages/login-page.html"><i class="far fa-copy"></i>Регистрация</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav id="menu-not"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
+    <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item">
+                <a class="nav-link" href="/pages/main_page.html#hot"><i class="fas fa-tachometer-alt"></i>Горячие предложения</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/pages/main_page.html#category"><i class="far fa-address-book"></i>Катеогрии</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pages/main_page.html#season"><i class="far fa-clone"></i>Сезоны</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pages/main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
+            </li>
+            <li id ="prof" class="nav-item">
+              <a class="nav-link" href="/pages/profile/profile_page.html"><i class="far fa-copy"></i>Профиль</a>
+          </li>
+            <li id="log" class="nav-item">
+                <a  class="nav-link" href="/pages/login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
+            </li>
+            <li id ="reg" class="nav-item">
+                <a class="nav-link" href="/pages/login-page.html"><i class="far fa-copy"></i>Регистрация</a>
+            </li>
+        </ul>
+    </div>
+</nav>
     <br>
     <br>
 
@@ -267,5 +270,6 @@
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
     <script src="/js/header_nav.js"></script>
+    <script src="/js/log-reg.js"></script>
 </body>
 </html>

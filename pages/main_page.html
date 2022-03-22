@@ -6,17 +6,16 @@
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
   <link rel="stylesheet" href="/styles/footer.css">
   <link rel="stylesheet" href="/styles/header_nav.css">
+  <link rel="stylesheet" href="/styles/preloader.css">
+  
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" /> -->
 
-
-
-
-
-
-
 </head>
-<body>
-  <nav id="menu"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
+<body id = 'main_page'>
+
+
+
+  <nav id="menu-not"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
     <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
     <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
@@ -36,10 +35,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
+            <li id ="prof" class="nav-item">
+              <a class="nav-link" href="/pages/profile/profile_page.html"><i class="far fa-copy"></i>Профиль</a>
+          </li>
+            <li id="log" class="nav-item">
+                <a  class="nav-link" href="login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
             </li>
-            <li class="nav-item">
+            <li id ="reg" class="nav-item">
                 <a class="nav-link" href="login-page.html"><i class="far fa-copy"></i>Регистрация</a>
             </li>
         </ul>
@@ -329,22 +331,12 @@
           <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
             <h2 class="footer-heading"><a href="#" class="logo">Barahol.kz</a></h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#">read more <span class="ion-ios-arrow-round-forward"></span></a>
           </div>
         </div>
       </div>
       <div class="col-md-8 col-lg-7">
         <div class="row">
-          <div class="col-md-3 mb-md-0 mb-4 border-left">
-            <h2 class="footer-heading">Контакты</h2>
-            <ul class="list-unstyled">
-              <li><a href="#" class="py-1 d-block">Buy &amp; Sell</a></li>
-              <li><a href="#" class="py-1 d-block">Merchant</a></li>
-              <li><a href="#" class="py-1 d-block">Giving back</a></li>
-              <li><a href="#" class="py-1 d-block">Help &amp; Support</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-md-0 mb-4 border-left">
+                    <div class="col-md-3 mb-md-0 mb-4 border-left" style="visibility: hidden;">
             <h2 class="footer-heading">О нас</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Staff</a></li>
@@ -353,7 +345,7 @@
               <li><a href="#" class="py-1 d-block">Blog</a></li>
             </ul>
           </div>
-          <div class="col-md-3 mb-md-0 mb-4 border-left">
+          <div class="col-md-3 mb-md-0 mb-4 border-left" style="visibility: hidden;">
             <h2 class="footer-heading">Ресурсы</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Security</a></li>
@@ -363,6 +355,16 @@
             </ul>
           </div>
           <div class="col-md-3 mb-md-0 mb-4 border-left">
+            <h2 class="footer-heading">Контакты</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-1 d-block">Email</a></li>
+              <li><a href="#" class="py-1 d-block">Address</a></li>
+              <li><a href="#" class="py-1 d-block">8 777 777 77</a></li>
+              <li><a href="#" class="py-1 d-block">Help &amp; Support</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 mb-md-0 mb-4 border-left">
             <h2 class="footer-heading">Соц-сети</h2>
             <ul class="list-unstyled">
               <li><a href="#" class="py-1 d-block">Facebook</a></li>
@@ -370,28 +372,6 @@
               <li><a href="#" class="py-1 d-block">Instagram</a></li>
               <li><a href="#" class="py-1 d-block">Googleplus</a></li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row partner-wrap mt-5">
-      <div class="col-md-12">
-        <div class="row align-items-center">
-          <div class="col">
-            <h3 class="mb-0">Our Partner:</h3>
-          </div>
-          <div class="col-md-9">
-            <p class="partner-name mb-0">
-              <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 01</a>
-              <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 02</a>
-              <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 03</a>
-              <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 04</a>
-              <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 05</a>
-              <a href="#"><span class="ion-logo-ionic mr-2"></span>Company 06</a>
-            </p>
-          </div>
-          <div class="col text-md-right">
-            <p class="mb-0"><a href="#" class="btn-custom">See All <span class="ion-ios-arrow-round-forward"></span></a></p>
           </div>
         </div>
       </div>
@@ -423,8 +403,27 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
 
+<!-- Loading Spinner Wrapper-->
+<div class="loader text-center fixed-top">
+  <div class="loader-inner">
 
-
+      <!-- Animated Spinner -->
+      <div class="lds-roller mb-3">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+      
+     
+      <h4 class="text-uppercase font-weight-bold">Loading</h4>
+      <p class="font-italic text-muted">This loading window will be removed after <strong class="countdown text-dark font-weight-bold">4 </strong> Seconds</p>
+  </div>
+</div>
 
 
 
@@ -438,9 +437,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!-- partial -->
 
-  <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src="/js/log-reg.js"></script>
 <script src="/js/header_nav.js"></script>
+<script src="/js/preloader.js"></script>
 
 
 

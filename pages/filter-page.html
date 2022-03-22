@@ -19,7 +19,7 @@
     <title>Document</title>
 </head>
 <body>
-  <nav id="menu"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
+  <nav id="menu-not"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
     <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
     <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
@@ -39,10 +39,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="/pages/main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/pages/login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
+            <li id ="prof" class="nav-item">
+              <a class="nav-link" href="/pages/profile/profile_page.html"><i class="far fa-copy"></i>Профиль</a>
+          </li>
+            <li id="log" class="nav-item">
+                <a  class="nav-link" href="/pages/login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
             </li>
-            <li class="nav-item">
+            <li id ="reg" class="nav-item">
                 <a class="nav-link" href="/pages/login-page.html"><i class="far fa-copy"></i>Регистрация</a>
             </li>
         </ul>
@@ -261,5 +264,6 @@
     <script src="/js/header_nav.js"></script>
      <script src='/js/filter-page.js'></script>
      <script src="/scripts/filter.js"></script>
+     <script src="/js/log-reg.js"></script>
 </body>
 </html>
