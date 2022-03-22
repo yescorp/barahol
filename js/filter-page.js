@@ -64,52 +64,53 @@ document.addEventListener("DOMContentLoaded", function() {
         
         thumbLeft.style.left = percent + "%";
         range.style.left = percent + "%";
-        amountLeft.innerText = parseInt(percent * 100);
+        amountLeft.innerText = parseInt(_this.value);
     }
     setLeftValue();
     
     function setRightValue() {
-    var _this = inputRight,
-    min = parseInt(_this.min),
-    max = parseInt(_this.max);
-    
-    _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
-    
-    var percent = ((_this.value - min) / (max - min)) * 100;
-    
-    amountRight.innerText = parseInt(percent * 100);
-    thumbRight.style.right = (100 - percent) + "%";
-    range.style.right = (100 - percent) + "%";
+        var _this = inputRight,
+        min = parseInt(_this.min),
+        max = parseInt(_this.max);
+        
+        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+        
+        var percent = ((_this.value - min) / (max - min)) * 100;
+        
+        amountRight.innerText = parseInt(_this.value);
+        thumbRight.style.right = (100 - percent) + "%";
+        range.style.right = (100 - percent) + "%";
     }
+
     setRightValue();
     
     inputLeft.addEventListener("input", setLeftValue);
     inputRight.addEventListener("input", setRightValue);
     
     inputLeft.addEventListener("mouseover", function () {
-    thumbLeft.classList.add("hover");
+        thumbLeft.classList.add("hover");
     });
     inputLeft.addEventListener("mouseout", function () {
-    thumbLeft.classList.remove("hover");
+        thumbLeft.classList.remove("hover");
     });
     inputLeft.addEventListener("mousedown", function () {
-    thumbLeft.classList.add("active");
+        thumbLeft.classList.add("active");
     });
     inputLeft.addEventListener("mouseup", function () {
-    thumbLeft.classList.remove("active");
+        thumbLeft.classList.remove("active");
     });
     
     inputRight.addEventListener("mouseover", function () {
-    thumbRight.classList.add("hover");
+        thumbRight.classList.add("hover");
     });
     inputRight.addEventListener("mouseout", function () {
-    thumbRight.classList.remove("hover");
+        thumbRight.classList.remove("hover");
     });
     inputRight.addEventListener("mousedown", function () {
-    thumbRight.classList.add("active");
+        thumbRight.classList.add("active");
     });
     inputRight.addEventListener("mouseup", function () {
-    thumbRight.classList.remove("active");
+        thumbRight.classList.remove("active");
     });    
 });
 
