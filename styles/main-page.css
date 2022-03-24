@@ -1,0 +1,35 @@
+body{
+    width: 100%;
+}
+
+@media(max-width: 576px) {
+
+    ::-webkit-scrollbar{width:2px;height:2px;}
+    ::-webkit-scrollbar-button{width:2px;height:2px;}
+
+    div{
+        box-sizing:border-box;
+    }
+
+    .scrolling-wrapper-flexbox {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+    }
+
+    .scrolling-item {
+        flex: 0 0 auto;
+        width: 400%;
+        margin-left: 60%;   
+    }     
+
+    .card {
+        width: 400%;
+    }
+
+    .first-item {
+        margin-left: 0;
+    }
+
+}
+
