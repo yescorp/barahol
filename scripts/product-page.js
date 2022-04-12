@@ -21,6 +21,16 @@ $(document).ready(function(){
     let id = urlParams.get('id');
 
     loadProductInfo(id).then(addImagesHoverEvent);
+
+     $("#white_background").click(function(){
+         $("#white_background").hide();
+         $("#order-details").hide();
+     });
+
+     $("#close_order").click(function(){
+        $("#white_background").hide();
+        $("#order-details").hide();
+     });
 });
 
 async function loadProductInfo(id){
@@ -157,4 +167,13 @@ async function addImagesHoverEvent(){
         console.log($(this)[0].src);
         $("#selected-image")[0].src = $(this)[0].src;
     });
+}
+
+function display_order_menu(){
+    let background_div = document.createElement('div');
+    background_div.style = "background-color: #f2f2f2";
+
+    let div = document.createElement('div');
+    let form = document.createElement('form');
+
 }
