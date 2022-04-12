@@ -1,4 +1,6 @@
-// ---------Responsive-navbar-active-animation-----------
+
+
+var duration = 0.0;
 function test(){
 	var tabsNewAnim = $('#navbarSupportedContent');
 	var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
@@ -7,13 +9,18 @@ function test(){
 	var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
 	var itemPosNewAnimTop = activeItemNewAnim.position();
 	var itemPosNewAnimLeft = activeItemNewAnim.position();
+
 	$(".hori-selector").css({
 		"top":itemPosNewAnimTop.top + "px", 
 		"left":itemPosNewAnimLeft.left + "px",
 		"height": activeWidthNewAnimHeight + "px",
-		"width": activeWidthNewAnimWidth + "px"
+		"width": activeWidthNewAnimWidth + "px",
+		"transition-duration" : duration + "s" 
 	});
+	
 	$("#navbarSupportedContent").on("click","li",function(e){
+		console.log("sadsa");
+		duration = 0.6;
 		$('#navbarSupportedContent ul li').removeClass("active");
 		$(this).addClass('active');
 		var activeWidthNewAnimHeight = $(this).innerHeight();
@@ -24,7 +31,8 @@ function test(){
 			"top":itemPosNewAnimTop.top + "px", 
 			"left":itemPosNewAnimLeft.left + "px",
 			"height": activeWidthNewAnimHeight + "px",
-			"width": activeWidthNewAnimWidth + "px"
+			"width": activeWidthNewAnimWidth + "px",
+			"transition-duration" : duration + "s" 
 		});
 	});
 }
