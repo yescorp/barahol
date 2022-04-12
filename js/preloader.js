@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 
 
-    // FOR DEMO PURPOSE
     $(window).on('load', function () {
         var loadingCounter = setInterval(function () {
             var count = parseInt($('.countdown').html());

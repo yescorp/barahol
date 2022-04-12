@@ -22,8 +22,8 @@ $(document).ready(function(){
         console.log(data['email']);
 
         $("#email").val(data['email']);
-        $("#name").val(data['email']);
-        $("#surname").val(data['email']);
+        $("#name").val(data['name']);
+        $("#surname").val(data['surname']);
 
         console.log(data);
   }
