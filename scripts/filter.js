@@ -135,7 +135,7 @@ $(document).ready(function(){
         }
 
         for(let i = 0; i < genderUrl.length; i++){
-            finalParams += "&category=" + genderUrl[i];
+            finalParams += "&categories=" + genderUrl[i];
 
             for(let j = 0; j < gender.length; j++){
                 if(gender[j].value == genderUrl[i]){
@@ -164,7 +164,7 @@ $(document).ready(function(){
     catch(e){}
 
     createSubcategoryOptions().then(createSeasonOptions).then(checkOptions);
-
+    finalParams += "&limit=16&page=" + urlParams.get('page');
     loadProducts(finalParams);
 
 
@@ -174,6 +174,16 @@ $(document).ready(function(){
 async function loadProducts(params){
     console.log("loading products...\n" + params);
     let result = await fetch("https://api.barahol.kz/product/filter?" + params, {method: "GET"});
+
+    if(result.status == 404){
+        let div = document.createElement('div');
+        console.log('404');
+
+        div.textContent = "По вашему запросу продуктов не найдено.\nПопробуйте применить другие фильтры";
+        div.style = "text-align: right";
+        $("#products-super-container").append(div);
+        return;
+    }
     
     let products = await result.json();
     console.log(products);
@@ -183,6 +193,7 @@ async function loadProducts(params){
 }
 
 function displayProducts(products){
+
     let row = document.createElement("div");
     row.classList.add("row");
 
