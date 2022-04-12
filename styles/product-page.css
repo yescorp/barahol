@@ -1,3 +1,7 @@
+.super_container{
+    margin-top: 66px;
+}
+
 .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -60,6 +64,8 @@
     margin-top: 9px;
     clear: left
 }
+
+
 
 .product_discount {
     display: inline-block;
@@ -181,6 +187,29 @@
     overflow: hidden;
     padding: 15px
 }
+
+.image_list {
+    overflow-y: scroll;
+    max-height: 525px;
+}
+
+.image_list::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+.image_list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+
+.image_list::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+
+.image_list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
 .image_list li {
     display: -webkit-box;

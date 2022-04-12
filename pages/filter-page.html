@@ -83,26 +83,36 @@
                     <div class="form-group text-center">
                       <button class="btn btn-primary" id="apply_filters">Применить фильтры</button>
                     </div>
-                    <div class="box-label text-uppercase d-flex align-items-center">Категория<button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#category-inner-box" aria-expanded="false" aria-controls="inner-box" id="out" onclick="outerFilter()"> <span class="fas fa-plus">+</span></button> </div>
-                    <div id="category-inner-box">
+                    <div class="box-label text-uppercase d-flex align-items-center">Категория<button class="btn ml-auto box-label text-uppercase d-flex align-items-center" type="button" data-toggle="collapse" data-target="#category-inner-box" aria-expanded="false" aria-controls="inner-box"onclick="outerFilter()"> <span class="fas fa-plus plus_button">+</span></button> </div>
+                    <div id="category-inner-box" class="collapse">
                     <div> <label class="tick">Одежда <input type="checkbox" value="clothes" checked="checked" id="clothes"> <span class="check"></span> </label> </div>
                     <div> <label class="tick">Обувь <input type="checkbox" value="shoes" id="shoes"> <span class="check"></span> </label> </div>
                     <div> <label class="tick">Аксессуары <input type="checkbox" value="accessories" id="accessories"> <span class="check"></span> </label> </div>
                 </div>
               </div>
+
+              <div class="box border-bottom">
+                <div class="box-label text-uppercase d-flex align-items-center">Вид<button class="btn ml-auto box-label text-uppercase d-flex align-items-center" type="button" data-toggle="collapse" data-target="#gender-inner-box" aria-expanded="false" aria-controls="inner-box"onclick="outerFilter()"> <span class="fas fa-plus plus_button">+</span></button> </div>
+                <div id="gender-inner-box" class="collapse">
+                  <div> <label class="tick">Женщинам<input type="checkbox" value="female" id="male"> <span class="check"></span> </label> </div>
+                  <div> <label class="tick">Мужчинам<input type="checkbox" value="male" id="female"> <span class="check"></span> </label> </div>
+                  <div> <label class="tick">Унисекс<input type="checkbox" value="unisex" id="unisex"> <span class="check"></span> </label> </div>
+                  <div> <label class="tick">Детям<input type="checkbox" value="kids" id="kids"> <span class="check"></span> </label> </div>
+                </div>
+          </div>
                 <div class="box border-bottom">
-                    <div class="box-label text-uppercase d-flex align-items-center">Субкатегория<button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#subcategory-inner-box" aria-expanded="false" aria-controls="inner-box" id="out" onclick="outerFilter()"> <span class="fas fa-plus">+</span> </button> </div>
+                    <div class="box-label text-uppercase d-flex align-items-center">Субкатегория<button class="btn ml-auto box-label text-uppercase d-flex align-items-center" type="button" data-toggle="collapse" data-target="#subcategory-inner-box" aria-expanded="false" aria-controls="inner-box" onclick="outerFilter()"> <span class="fas fa-plus plus_button">+</span> </button> </div>
                     <div id="subcategory-inner-box" class="collapse mt-2 mr-1">
                     </div>
                 </div>
                 <div class="box border-bottom">
-                    <div class="box-label text-uppercase d-flex align-items-center">Сезон<button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#season-inner-box" aria-expanded="false" aria-controls="inner-box2"><span class="fas fa-plus">+</span></button> </div>
+                    <div class="box-label text-uppercase d-flex align-items-center">Сезон<button class="btn ml-auto box-label text-uppercase d-flex align-items-center" type="button" data-toggle="collapse" data-target="#season-inner-box" aria-expanded="false" aria-controls="inner-box2"><span class="fas fa-plus plus_button">+</span></button> </div>
                     <div id="season-inner-box" class="collapse mt-2 mr-1">
                         
                       </div>
                 </div>
                 <div class="box border-bottom">
-                    <div class="box-label text-uppercase d-flex align-items-center">Цена<button class="btn ml-auto" type="button" data-toggle="collapse" data-target="#price" aria-expanded="false" aria-controls="price"><span class="fas fa-plus">+</span></button> </div>
+                    <div class="box-label text-uppercase d-flex align-items-center">Цена<button class="btn ml-auto box-label text-uppercase d-flex align-items-center" type="button" data-toggle="collapse" data-target="#price" aria-expanded="false" aria-controls="price"><span class="fas fa-plus plus_button">+</span></button> </div>
                     <div class="collapse" id="price">
                         <div class="middle">
                             <div class="multi-range-slider"> <input type="range" id="input-left" min="0" max="100000" value="10"> <input type="range" id="input-right" min="0" max="100000" value="50">
@@ -138,23 +148,8 @@
                   -->
             </div>
             <section class="section-products" style="padding: 0;">
-                <div class="container">
+                <div class="container" id="products-super-container">
 
-                        <div class="row">
-                                <!-- Single Product -->
-                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div id="product-1" class="single-product">
-                                                <div class="part-1">
-
-                                                </div>
-                                                <div class="part-2">
-                                                        <h3 class="product-title">Here Product Title</h3>
-                                                        <h4 class="product-old-price">$79.99</h4>
-                                                        <h4 class="product-price">$49.99</h4>
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
                 </div>
         </section>
         </div>
