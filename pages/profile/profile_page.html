@@ -17,12 +17,12 @@
     <i class="fas fa-bars text-white"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto mr-5">
             <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
             <li class="nav-item">
                 <a class="nav-link" href="/pages/main_page.html#hot"><i class="fas fa-tachometer-alt"></i>Горячие предложения</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="/pages/main_page.html#category"><i class="far fa-address-book"></i>Катеогрии</a>
             </li>
             <li class="nav-item">
@@ -31,15 +31,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/pages/main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
             </li>
-            <li id ="prof" class="nav-item">
+            <li id ="prof" class="nav-item active">
               <a class="nav-link" href="/pages/profile/profile_page.html"><i class="far fa-copy"></i>Профиль</a>
           </li>
-            <li id="log" class="nav-item">
-                <a  class="nav-link" href="/pages/login-page.html"><i class="far fa-chart-bar"></i>Логин</a>
-            </li>
-            <li id ="reg" class="nav-item">
-                <a class="nav-link" href="/pages/login-page.html"><i class="far fa-copy"></i>Регистрация</a>
-            </li>
         </ul>
     </div>
 </nav>
@@ -47,30 +41,10 @@
     <br>
 
     <div class="container-xl px-4 mt-4">
-        <!-- Account page navigation-->
-        <nav class="nav nav-borders">
-            <a class="nav-link active ms-0" href="#" target="_self">Profile</a>
-            <a class="nav-link" href="/pages/profile/profile-billing.html" target="_self">Billing</a>
-            <a class="nav-link" href="/pages/profile/profile-security.html" target="_self">Security</a>
-            <a class="nav-link" href="/pages/profile/profile-notifications.html"  target="_self">Notifications</a>
-        </nav>
-        <hr class="mt-0 mb-4">
+
+       <br>
         <div class="row">
-            <div class="col-xl-4">
-                <!-- Profile picture card-->
-                <div class="card mb-4 mb-xl-0">
-                    <div class="card-header">Profile Picture</div>
-                    <div class="card-body text-center">
-                        <!-- Profile picture image-->
-                        <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                        <!-- Profile picture help block-->
-                        <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                        <!-- Profile picture upload button-->
-                        <button class="btn btn-primary" type="button">Upload new image</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-8">
+            <div class="col-xl-6">
                 <!-- Account details card-->
                 <div class="card mb-4">
                     <div class="card-header">Account Details</div>
@@ -78,14 +52,14 @@
                         <form>
                             <!-- Form Group (username)-->
                             <!-- Form Row-->
-                            <div class="row gx-3 mb-3">
+                            <div class=" mb-3">
                                 <!-- Form Group (first name)-->
-                                <div class="col-md-6">
+                                <div class="mb-3">
                                     <label class="small mb-1" for="inputFirstName">First name</label>
                                     <input id = "name" class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="">
                                 </div>
                                 <!-- Form Group (last name)-->
-                                <div class="col-md-6">
+                                <div class="mb-3">
                                     <label class="small mb-1" for="inputLastName">Last name</label>
                                     <input id = "surname" class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="">
                                 </div>
@@ -102,8 +76,83 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xl-6">
+              <!-- Change password card-->
+              <div class="card mb-4">
+                  <div class="card-header">Change Password</div>
+                  <div class="card-body">
+                      <form>
+                          <!-- Form Group (current password)-->
+                          <div class="mb-3">
+                              <label class="small mb-1" for="currentPassword">Current Password</label>
+                              <input class="form-control" id="currentPassword" type="password" placeholder="Enter current password">
+                          </div>
+                          <!-- Form Group (new password)-->
+                          <div class="mb-3">
+                              <label class="small mb-1" for="newPassword">New Password</label>
+                              <input class="form-control" id="newPassword" type="password" placeholder="Enter new password">
+                          </div>
+                          <!-- Form Group (confirm password)-->
+                          <div class="mb-3">
+                              <label class="small mb-1" for="confirmPassword">Confirm Password</label>
+                              <input class="form-control" id="confirmPassword" type="password" placeholder="Confirm new password">
+                          </div>
+                          <button class="btn btn-primary" type="button">Save</button>
+                      </form>
+                  </div>
+              </div>
+              </div>
         </div>
+        <div class="card mb-4">
+          <div class="card-header">Billing History</div>
+          <div class="card-body p-0">
+              <!-- Billing history table-->
+              <div class="table-responsive table-billing-history">
+                  <table class="table mb-0">
+                      <thead>
+                          <tr>
+                              <th class="border-gray-200" scope="col">Transaction ID</th>
+                              <th class="border-gray-200" scope="col">Date</th>
+                              <th class="border-gray-200" scope="col">Amount</th>
+                              <th class="border-gray-200" scope="col">Status</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>#39201</td>
+                              <td>06/15/2021</td>
+                              <td>$29.99</td>
+                              <td><span class="badge bg-light text-dark">Pending</span></td>
+                          </tr>
+                          <tr>
+                              <td>#38594</td>
+                              <td>05/15/2021</td>
+                              <td>$29.99</td>
+                              <td><span class="badge bg-success">Paid</span></td>
+                          </tr>
+                          <tr>
+                              <td>#38223</td>
+                              <td>04/15/2021</td>
+                              <td>$29.99</td>
+                              <td><span class="badge bg-success">Paid</span></td>
+                          </tr>
+                          <tr>
+                              <td>#38125</td>
+                              <td>03/15/2021</td>
+                              <td>$29.99</td>
+                              <td><span class="badge bg-success">Paid</span></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
     </div>
+
+
+</div>
+
+
 
     <br>
     <footer id="footer" class="footer-02">
