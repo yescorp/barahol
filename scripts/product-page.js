@@ -39,7 +39,7 @@ async function loadProductInfo(id){
 
     $('#old-price').text(data['product']['price'] + "₸");
 
-    $("#saved").text(data['product']['price']  - data['product']['salesPrice']);
+    $("#saved").text(data['product']['price']  - data['product']['salesPrice'] + "₸");
 
     $("#serial-number").text(data['product']['serialNumber']);
     
@@ -55,6 +55,17 @@ async function loadProductInfo(id){
 
     $('#style').text(data['product']['style']);
 
+    if(data['clothesCompositions'] != null || data['clothesCompositions'] != undefined){
+        for(let i = 0; i < data['clothesCompositions'].length; i++){
+            let p = document.createElement('p');
+
+            p.textContent = data['clothesCompositions'][i]['material']['name'] + ": " + data['clothesCompositions'][i]['percent'];
+            p.textContent += (data['clothesCompositions'][i]['percent'] > 1) ? "%" : "";
+            p.textContent += "\n";
+            $("#material")[0].appendChild(p);
+        }
+    }
+
     $('#selected-image')[0].src = 'https://barahol.kz/ProductImages/' + data['product']['productImages'][0]['imageSource'];
 
     for(let i = 0; i < data['product']['productImages'].length; i++){
@@ -67,6 +78,77 @@ async function loadProductInfo(id){
         img.classList.add('product-images');
         $('#image-list')[0].append(li);
     }
+
+    if(data['product']['series'].length == 0){
+        for(let i = 0; i < data['product']['maxSeriesCount']; i++){
+            await fetch('https://api.barahol.kz/series/add', {
+                method: "POST", 
+                headers: {
+                    "Accept": "application/json; charset=utf-8",
+                    "Content-Type": "application/json;charset=utf-8"                    
+                },
+                body: JSON.stringify({
+                productId: id
+            })});
+
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+
+            if(data['availableClothesSizes'] != null || data['availableClothesSizes'] != undefined){            
+                for(let j = 0; j < data['availableClothesSizes'].length; j++){
+                    
+                    let label = document.createElement('label');
+                    label.classList.add('radio');
+                    let input = document.createElement('input');
+                    input.value = data['availableClothesSizes'][j]['size']['americanSize'];
+                    input.type = 'radio';
+                    input.name = i;
+                    console.log(input.type);
+                    let span = document.createElement('span');
+                    span.textContent = data['availableClothesSizes'][j]['size']['americanSize'];
+
+                    label.appendChild(input);                    
+                    label.appendChild(span);
+                    td.appendChild(label);
+                    label.style = "margin-right: 5px;";
+                }
+            }
+            console.log('test');
+            tr.appendChild(td);
+            $('#sizes')[0].appendChild(tr);
+        }
+    }
+    else {
+        for(let i = 0; i < data['product']['maxSeriesCount']; i++){
+
+            let tr = document.createElement('tr');
+            let td = document.createElement('td');
+
+            if(data['availableClothesSizes'] != null || data['availableClothesSizes'] != undefined){            
+                for(let j = 0; j < data['availableClothesSizes'].length; j++){
+                    
+                    let label = document.createElement('label');
+                    label.classList.add('radio');
+                    let input = document.createElement('input');
+                    input.value = data['availableClothesSizes'][j]['size']['americanSize'];
+                    input.type = 'radio';
+                    input.name = i;
+                    console.log(input.type);
+                    let span = document.createElement('span');
+                    span.textContent = data['availableClothesSizes'][j]['size']['americanSize'];
+
+                    label.appendChild(input);                    
+                    label.appendChild(span);
+                    td.appendChild(label);
+                    label.style = "margin-right: 5px;";
+                }
+            }
+            console.log('test');
+            tr.appendChild(td);
+            $('#sizes')[0].appendChild(tr);
+        }
+    }
+
 }
 
 async function addImagesHoverEvent(){
