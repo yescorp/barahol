@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Barahol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
   <link rel="stylesheet" href="/styles/footer.css">
   <link rel="stylesheet" href="/styles/header_nav.css">
   <link rel="stylesheet" href="/styles/preloader.css">
+  <link rel="stylesheet" href="/styles/main-page.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
@@ -17,8 +19,8 @@
 
   <nav id="menu-not"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
     <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
-    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="fas fa-bars text-white"></i>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="/assets/images/burger-menu.png" width="32" height="32" alt="">
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
@@ -49,7 +51,7 @@
 </nav>
 
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: 66px;">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -90,9 +92,8 @@
 
 <h2 id = "hot" class="font-weight-bold mb-2">Горячие предложения</h2>
   <br>
-  
-  <div class="row pb-5 mb-4">
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+  <div class="row scrolling-wrapper-flexbox pb-5 mb-4">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 mb-sm-4 mb-xs-4 first-item scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-1_gthops.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -109,7 +110,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 mb-sm-4 mb-xs-4 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-2_g4qame.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -126,7 +127,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 mb-sm-4 mb-xs-4 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-3_rk25rt.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -143,7 +144,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 mb-sm-4 mb-xs-4 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://bootstrapious.com/i/snippets/sn-cards/shoes-4_vgfjy9.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -163,14 +164,12 @@
   
 
 
-
-
   <br>
   <h2 id="category" class="font-weight-bold mb-2">Категории</h2>
   <br>
-  
-  <div class="row pb-5 mb-4">
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+
+  <div class="row scrolling-wrapper-flexbox pb-5 mb-4">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item first-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://i.pinimg.com/564x/76/6b/5a/766b5a5b5a4f94b122ddad591a2368df.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -186,8 +185,7 @@
         </div>
       </div>
     </div>
-
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://avatars.mds.yandex.net/get-zen_doc/1540250/pub_5d78e7c9a3f6e400c277d0bb_5d78e7d306cc4600ae57a1e9/scale_1200" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -204,7 +202,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://static.insales-cdn.com/r/DiIuvq9rjuE/rs:fit:600:0:1/plain/images/products/1/4698/522130010/GD122.103386_%D1%82.%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D1%8B%D0%B9_3.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -221,7 +219,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://its-wear.ru/image/cache/catalog/hudi/komplekt/A9_01633-600x900.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -243,15 +241,12 @@
 
 
 
-
-
-
-  <br>
+  <br/>
   <h2 id="season" class="font-weight-bold mb-2">Сезоны</h2>
   <br>
   
-  <div class="row pb-5 mb-4">
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+  <div class="row scrolling-wrapper-flexbox pb-5 mb-4">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 first-item scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://www.pokupkalux.ru/upload/catalog_images/M11_beg/M11_beg01.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -268,7 +263,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 col-3 mb-lg-0 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://optomby.com/wp-content/uploads/2019/09/7159397-4.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -285,7 +280,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 col-3 mb-lg-0 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://moddam.ru/wp-content/uploads/2020/02/dlya-vseh4.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
@@ -302,7 +297,7 @@
       </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+    <div class="col-lg-3 col-md-6 col-sm-6 mb-4 col-3 mb-lg-0 scrolling-item">
       <!-- Card-->
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://sc01.alicdn.com/kf/HTB1vd06bkfb_uJkSnfoq6z_epXav/229758845/HTB1vd06bkfb_uJkSnfoq6z_epXav.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
