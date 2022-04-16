@@ -4,20 +4,54 @@
   <meta charset="UTF-8">
   <title>Barahol</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+  
   <link rel="stylesheet" href="/styles/footer.css">
-  <link rel="stylesheet" href="/styles/header_nav.css">
+ 
   <link rel="stylesheet" href="/styles/preloader.css">
+  
   <link rel="stylesheet" href="/styles/main-page.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-
+  
+  <link rel="stylesheet" href="/styles/header_nav.css">
 </head>
 <body id = 'main_page'>
 
+  <nav class="navbar navbar-expand-custom navbar-mainbg fixed-top" id="menu-not">
+    <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115"></a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item">
+              <a class="nav-link" href="main_page.html#hot"><i class=""></i>Горячие предложения</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="main_page.html#category"><i class=""></i>Катеогрии</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="main_page.html#season"><i class=""></i>Сезоны</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="main_page.html#footer"><i class=""></i>О нас</a>
+          </li>
+          <li id ="prof" class="nav-item">
+            <a class="nav-link" href="/pages/profile/profile_page.html"><i class=""></i>Профиль</a>
+        </li>
+          <li id="log" class="nav-item">
+              <a  class="nav-link" href="login-page.html"><i class=""></i>Логин</a>
+          </li>
+          <li id ="reg" class="nav-item">
+              <a class="nav-link" href="login-page.html"><i class=""></i>Регистрация</a>
+        </ul>
+    </div>
+</nav>
 
-
-  <nav id="menu-not"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
+  <!-- <nav id="menu-not"  class="navbar navbar-expand-custom navbar-mainbg  fixed-top " >
     <a class="navbar-brand navbar-logo" href="#"><img src="/assets/images/logo.svg" alt="" width="115">  </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <img src="/assets/images/burger-menu.png" width="32" height="32" alt="">
@@ -48,7 +82,7 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav> -->
 
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: 66px;">
@@ -333,47 +367,28 @@
         <div class="row">
           <div class="col-md-12 col-lg-8 mb-md-0 mb-4">
             <h2 class="footer-heading"><a href="#" class="logo">Barahol.kz</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Barahol -  маркетплейс для покупки качественной одежды в розницу по оптовым ценам. </p>
           </div>
         </div>
       </div>
       <div class="col-md-8 col-lg-7">
         <div class="row">
-                    <div class="col-md-3 mb-md-0 mb-4 border-left" style="visibility: hidden;">
-            <h2 class="footer-heading">О нас</h2>
-            <ul class="list-unstyled">
-              <li><a href="#" class="py-1 d-block">Staff</a></li>
-              <li><a href="#" class="py-1 d-block">Team</a></li>
-              <li><a href="#" class="py-1 d-block">Careers</a></li>
-              <li><a href="#" class="py-1 d-block">Blog</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-md-0 mb-4 border-left" style="visibility: hidden;">
-            <h2 class="footer-heading">Ресурсы</h2>
-            <ul class="list-unstyled">
-              <li><a href="#" class="py-1 d-block">Security</a></li>
-              <li><a href="#" class="py-1 d-block">Global</a></li>
-              <li><a href="#" class="py-1 d-block">Charts</a></li>
-              <li><a href="#" class="py-1 d-block">Privacy</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-md-0 mb-4 border-left">
+                    <div class="col-md-3 mb-md-0 mb-4 border-left" >
             <h2 class="footer-heading">Контакты</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-1 d-block">Email</a></li>
-              <li><a href="#" class="py-1 d-block">Address</a></li>
-              <li><a href="#" class="py-1 d-block">8 777 777 77</a></li>
-              <li><a href="#" class="py-1 d-block">Help &amp; Support</a></li>
+              <li><a href="#" class="py-1 d-block">8 (706) 606 69 03</a></li>
             </ul>
           </div>
-
-          <div class="col-md-3 mb-md-0 mb-4 border-left">
-            <h2 class="footer-heading">Соц-сети</h2>
+          <div class="col-md-3 mb-md-0 mb-4 border-left" >
+            <h2 class="footer-heading">Адрес</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-1 d-block">Facebook</a></li>
-              <li><a href="#" class="py-1 d-block">Twitter</a></li>
-              <li><a href="#" class="py-1 d-block">Instagram</a></li>
-              <li><a href="#" class="py-1 d-block">Googleplus</a></li>
+              <li><a href="#" class="py-1 d-block">Маркова 43</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-md-0 mb-4 border-left">
+            <h2 class="footer-heading">Email</h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-1 d-block">kzbarahol@gmail.com</a></li>
             </ul>
           </div>
         </div>
@@ -386,13 +401,13 @@
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |<i class="ion-ios-heart" aria-hidden="true"></i> by <a href="" target="_blank">Barahol.kz</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
       </div>
-      <div class="col-md-6 col-lg-4 text-md-right">
+      <!-- <div class="col-md-6 col-lg-4 text-md-right" >
         <p class="mb-0 list-unstyled">
           <a class="mr-md-3" href="#">Terms</a>
           <a class="mr-md-3" href="#">Privacy</a>
           <a class="mr-md-3" href="#">Compliances</a>
         </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </footer>
@@ -440,7 +455,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!-- partial -->
 
-<script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'></script>
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 <script src="/js/header_nav.js"></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
 <script src="/js/log-reg.js"></script>
