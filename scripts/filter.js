@@ -89,7 +89,7 @@ $(document).ready(function(){
 
         params += "&page=1";
 
-        window.location.replace("/pages/filter-page.html?" + params);
+        window.location = "/pages/filter-page.html?" + params;
     });
 
     let finalParams = "";
@@ -168,12 +168,12 @@ $(document).ready(function(){
     createSubcategoryOptions().then(createSeasonOptions).then(checkOptions);
     finalParams += "&limit=16&page=" + urlParams.get('page');
     loadProducts(finalParams);
-
-
-
 });
 
 async function loadProducts(params){
+    const queryString = window.location.search;
+    urlParams = new URLSearchParams(queryString);
+
     console.log("loading products...\n" + params);
     let result = await fetch("https://api.barahol.kz/product/filter?" + params, {method: "GET"});
 
@@ -190,7 +190,90 @@ async function loadProducts(params){
     let products = await result.json();
     console.log(products);
 
+    let li1 = document.createElement('li');
+    li1.classList.add('page-item');
+    let a1 = document.createElement('a');
+    a1.classList.add('page-link');
+
+    a1.innerHTML = "&lt;";
+
+    li1.appendChild(a1);
+
+    a1.addEventListener('click', function(){
+        let prevPage = urlParams.get('page') - 1;
+        if(prevPage > 0){
+            urlParams.set('page', prevPage);
+            window.location.search = urlParams;
+        }
+    });
+
+    $("#pagination-1")[0].appendChild(li1);
+    
+
+    for(let i = 0; i < products['maxPagesCount']; i++){
+        if(i < 3 || i > products['maxPagesCount'] - 3 || (i > urlParams.get('page') - 2 && i < parseInt(urlParams.get('page')) + 2)){
+
+            if(!(i + 1 < 3 || i + 1 > products['maxPagesCount'] - 3 || (i + 1 > urlParams.get('page') - 2 && i + 1 < parseInt(urlParams.get('page')) + 2))){
+                let li = document.createElement('li');
+                li.classList.add('page-item');
+                let a = document.createElement('a');
+                a.classList.add('page-link');
+
+                a.textContent = "...";
+
+                li.appendChild(a);
+
+                $("#pagination-1")[0].appendChild(li);
+                continue;
+            }
+
+            let li = document.createElement('li');
+            li.classList.add('page-item');
+            let a = document.createElement('a');
+            a.classList.add('page-link');
+            if(urlParams.get('page') == i + 1){
+                li.classList.add('active');
+            }
+
+            a.textContent = i + 1;
+
+            li.appendChild(a);
+
+            $("#pagination-1")[0].appendChild(li);
+
+            a.addEventListener('click', function(){
+                console.log('page clicked');
+                urlParams.set('page', this.text);
+                console.log(urlParams.get('page'));
+
+                window.location.search = urlParams;
+            });
+        }
+
+    }
+
+    let li = document.createElement('li');
+    li.classList.add('page-item');
+    let a = document.createElement('a');
+    a.classList.add('page-link');
+
+    a.innerHTML = "&gt;";
+
+    li.appendChild(a);
+
+    a.addEventListener('click', function(){
+        console.log(parseInt(urlParams.get('page')) + 1)
+        let nextPage = parseInt(urlParams.get('page')) + 1;
+        if(nextPage <= products['maxPagesCount']){
+            urlParams.set('page', nextPage);
+            window.location.search = urlParams;
+        }
+    });
+
+    $("#pagination-1")[0].appendChild(li);
+
     displayProducts(products["products"]);
+
 
 }
 
@@ -204,6 +287,7 @@ function displayProducts(products){
             div1.classList.add("col-md-6");
             div1.classList.add("col-lg-4");
             div1.classList.add("col-xl-3");
+            div1.classList.add('col-6');
 
             row.appendChild(div1);
 
@@ -212,14 +296,14 @@ function displayProducts(products){
             div2.id = products[j]["productId"];
 
             div2.addEventListener('click', function(){
-                window.location.replace('/pages/product-page.html?id=' + this.id);
+                window.location = '/pages/product-page.html?id=' + this.id;
             })
 
             div1.appendChild(div2);
 
             let first_part = document.createElement("div");
             first_part.classList.add("part-1");
-            first_part.style = "background: url('https://barahol.kz/ProductImages/" + products[j]["productImages"][0]['imageSource'] + "') no-repeat center; background-size: contain ;";
+            first_part.style = "background: url('https://barahol.kz/ProductImages/" + products[j]["productImages"][0]['imageSource'] + "') no-repeat center; background-size: cover;";
             
             div2.appendChild(first_part);
 
@@ -248,13 +332,16 @@ function displayProducts(products){
 }
 
 function checkOptions(){
-    
+    const queryString = window.location.search;
+    console.log(queryString);
 
-    const subcategoriesUrl = urlParams.get("subcategories").split(",");
+    urlParams = new URLSearchParams(queryString);
+
+    const subcategoriesUrl = urlParams.get("subcategories")?.split(",") ?? [];
     
     console.log(subcategoriesUrl);
 
-    const seasonsUrl = urlParams.get("seasons").split(",");
+    const seasonsUrl = urlParams.get("seasons")?.split(",") ?? [];
 
     console.log(seasonsUrl);
 

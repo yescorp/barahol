@@ -32,7 +32,27 @@ body {
     
     padding: 4vh 5vh;
     border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem
+    border-top-left-radius: 1rem;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+
+
+.cart::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cart::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.cart::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 @media(max-width:767px) {
@@ -94,12 +114,16 @@ a {
     font-size: 0.7rem
 }
 
+.close:hover{
+    cursor: pointer;
+}
+
 img {
     width: 3.5rem
 }
 
 .back-to-shop {
-    margin-top: 4.5rem
+    margin-top: 1.5rem
 }
 
 h5 {

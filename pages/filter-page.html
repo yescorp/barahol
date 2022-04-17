@@ -56,26 +56,11 @@
 
 
     <div class="container">
-        <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header"> <button class="btn btn-hide text-uppercase" type="button" data-toggle="collapse" data-target="#filterbar" aria-expanded="false" aria-controls="filterbar" id="filter-btn"> <span class="fas fa-angle-left" id="filter-angle"></span> <span id="btn-txt">Свернуть фильтры</span> </button>
-            <nav class="navbar navbar-expand-lg navbar-light pl-lg-0 pl-auto"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav" aria-expanded="false" aria-label="Toggle navigation" onclick="chnageIcon()" id="icon"> <span class="navbar-toggler-icon"></span> </button>
-                <div class="collapse navbar-collapse" id="mynav">
-                    <ul class="navbar-nav d-lg-flex align-items-lg-center">
-                        <div class="font-weight-bold mx-2 result">18 из 200</div>
-                        <li class="nav-item d-lg-none d-inline-flex"> </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="ml-auto mt-3 mr-2">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"> <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true" class="font-weight-bold">&lt;</span> <span class="sr-only">Предыдущий</span> </a> </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">..</a></li>
-                        <li class="page-item"><a class="page-link" href="#">24</a></li>
-                        <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true" class="font-weight-bold">&gt;</span> <span class="sr-only">Следующий</span> </a> </li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header">
+            <button class="btn btn-hide text-uppercase" type="button" data-toggle="collapse" data-target="#filterbar" aria-expanded="false" aria-controls="filterbar" id="filter-btn"> 
+              <span class="fas fa-angle-left" id="filter-angle"></span> 
+              <span id="btn-txt">Свернуть фильтры</span> 
+            </button>
         </div>
         <div id="content" class="my-5">
             <div id="filterbar" class="collapse">
@@ -147,13 +132,27 @@
                     </div>
                   -->
             </div>
-            <section class="section-products" style="padding: 0;">
-                <div class="container" id="products-super-container">
-
-                </div>
-        </section>
+            
         </div>
     </div>
+    <section class="section-products" style="padding: 0;">
+      <div class="container" id="products-super-container">
+
+      </div>
+</section>
+
+<div class="ml-auto mt-3 mr-2 justify-content-end">
+<nav aria-label="Page navigation example">
+    <ul class="pagination ml-auto mt-3 mr-2 justify-content-center" id="pagination-1">
+         <!--<li class="page-item"> <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true" class="font-weight-bold">&lt;</span> <span class="sr-only">Предыдущий</span> </a> </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">..</a></li>
+        <li class="page-item"><a class="page-link" href="#">24</a></li>
+        <li class="page-item"> <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true" class="font-weight-bold">&gt;</span> <span class="sr-only">Следующий</span> </a> </li> -->
+    </ul>
+</nav>
+</div>
 
     
 <footer class="footer-02">

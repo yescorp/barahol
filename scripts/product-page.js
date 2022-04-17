@@ -1,8 +1,8 @@
 var list = {
-    'male': 'Мужчинам', 
-    'female': 'Женщинам', 
-    'unisex': 'Унисекс', 
-    'kids': 'Детям',
+    'male': 'Мужская одежда', 
+    'female': 'Женская одежда', 
+    'unisex': 'Одежда унисекс', 
+    'kids': 'Десткая одежда',
     'winter': 'Зима',
     'summer': 'Лето',
     'demiseason': 'Демисезон',
@@ -14,6 +14,8 @@ var type = "clothes";
 
 $(document).ready(function(){
 
+    $("#white_background").hide();
+    $("#sizes_container").hide();
 
     const queryString = window.location.search;
     console.log(queryString);
@@ -94,7 +96,7 @@ async function loadProductInfo(id){
     
     $('#category').text(list[data['category']['name']]);
 
-    $('#subcategory').text(data['category']['name']);
+    $('#subcategory').text(data['subcategory']['name']);
 
     $('#color').text(data['color']['name']);
 
@@ -107,8 +109,16 @@ async function loadProductInfo(id){
     try{
         let difference = new Date(new Date(data['endDate'])).getTime() - new Date().getTime(); 
         let seconds = parseInt((difference / 1000) % 60);
+
+        seonds = (seconds > 10 ? seconds : "0" + seconds);
+
         let minutes = parseInt((difference / (1000 * 60)) % 60);
+        
+        minutes = (minutes > 10 ? minutes : "0" + minutes);
+
         let hours = parseInt((difference / (1000 * 3600)) % 24);
+        hours = (hours > 10 ? hours : "0" + hours);
+
         let days = parseInt(difference / (1000 * 3600 * 24));
         console.log(new Date(data['endDate']));
         console.log(new Date());
@@ -120,8 +130,15 @@ async function loadProductInfo(id){
         try{
             let difference = new Date(new Date(data['endDate'])).getTime() - new Date().getTime(); 
             let seconds = parseInt((difference / 1000) % 60);
+
+            seonds = (seconds > 10 ? seconds : "0" + seconds);
+
             let minutes = parseInt((difference / (1000 * 60)) % 60);
+            
+            minutes = (minutes > 10 ? minutes : "0" + minutes);
+
             let hours = parseInt((difference / (1000 * 3600)) % 24);
+            hours = (hours > 10 ? hours : "0" + hours);
             let days = parseInt(difference / (1000 * 3600 * 24));
 
             $("#end-date").text("Осталось: " + days + ":"+ hours + ":" + minutes + ":" + seconds);
@@ -164,6 +181,8 @@ async function loadProductInfo(id){
         $('#image-list')[0].append(li);
     }
 
+    let isSeriesCreated = false;
+
     let series_result = await fetch('https://api.barahol.kz/series/add', {
         method: "POST", 
         headers: {
@@ -173,6 +192,9 @@ async function loadProductInfo(id){
         body: JSON.stringify({
         productId: id
         })});
+    if(series_result.status == 200){
+        isSeriesCreated = true;
+    }
 
     while (series_result.status == 200){
         series_result = await fetch('https://api.barahol.kz/series/add', {
@@ -186,13 +208,9 @@ async function loadProductInfo(id){
         })});
     }
 
-    // window.location.reload();
-    // try{
-    //     if(data['series']['productSeries'][0]['shoesSize'] != null && data['series']['productSeries'][0]['shoesSize'] != undefined){
-    //         $('#ordered_size')[0].disabled = true;
-    //     }
-    // }
-    // catch(e){}
+    if(isSeriesCreated == true){
+        window.location.reload();
+    }
 }
 
 async function addImagesHoverEvent(){
@@ -224,7 +242,6 @@ function DisplayClothesSeries(data){
             input.id = 'series-' + data['series'][j]['seriesId'] + '-size-' + data['series'][j]['productSeries'][i]['sizeId']
             input.setAttribute('autocomplete', "off");
             
-            console.log(input.type);
             
             let label = document.createElement('label');
             label.textContent = data['series'][j]['productSeries'][i]['clothesSize']['americanSize'];
@@ -245,7 +262,6 @@ function DisplayClothesSeries(data){
             td.appendChild(label);
 
             label.addEventListener('click', function(){
-                console.log($("#" + this.getAttribute('for'))[0].checked);
                 if($("#" + this.getAttribute('for'))[0].checked == false){
                     this.classList.remove('btn-outline-dark');
                     this.classList.add('btn-dark');
@@ -258,7 +274,6 @@ function DisplayClothesSeries(data){
             
         }
 
-        console.log('test');
         tr.appendChild(td);
         
         $('#sizes')[0].appendChild(tr);
@@ -384,70 +399,75 @@ async function createOrder(productId){
                 "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
             }
         });
-        console.log(orderResponse);
+    
 
-        let orderId = (await orderResponse.json())['id'];
+    if(orderResponse.status == 401){
+        window.location = '/pages/login-page.html?back=true';
+    }
+    console.log(orderResponse);
 
-        let values = $("#sizes input[type='checkbox']:checked");
+    let orderId = (await orderResponse.json())['id'];
 
-        for(let i = 0; i < values.length; i++){
+    let values = $("#sizes input[type='checkbox']:checked");
 
-            console.log(values[i].value);
-            console.log(values[i]);
-            console.log(orderId);
-            let series_id = values[i].id.split("-")[1];
-            console.log(series_id);
+    for(let i = 0; i < values.length; i++){
 
-            let orderItemrequest = await fetch("https://api.barahol.kz/order/item/add", {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json; charset=utf-8",
-                    "Content-Type": "application/json;charset=utf-8",
-                    "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
-                },
-                body: JSON.stringify({
-                    orderId: orderId, 
-                    seriesId: series_id,
-                    productId: productId,
-                    size: values[i].value
-                })
-            });
+        console.log(values[i].value);
+        console.log(values[i]);
+        console.log(orderId);
+        let series_id = values[i].id.split("-")[1];
+        console.log(series_id);
 
-            if(orderItemrequest.status == 200){
-                console.log("success");
-                values[i].disabled = true;
-                let div = document.createElement('div');
-                div.classList.add('alert');
-                div.classList.add('alert-dismissible');
-                div.classList.add('show');
-                div.classList.add('alert-success');
-                div.setAttribute('role', 'alert');
-                div.textContent = "Товар со значением " + values[i].value + " успешно добавлен в корзину";
+        let orderItemrequest = await fetch("https://api.barahol.kz/order/item/add", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json; charset=utf-8",
+                "Content-Type": "application/json;charset=utf-8",
+                "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+            },
+            body: JSON.stringify({
+                orderId: orderId, 
+                seriesId: series_id,
+                productId: productId,
+                size: values[i].value
+            })
+        });
 
-                div.style = "position: fixed; right: 0; top: 80px; z-index: 10003";
+        if(orderItemrequest.status == 200){
+            console.log("success");
+            values[i].disabled = true;
+            let div = document.createElement('div');
+            div.classList.add('alert');
+            div.classList.add('alert-dismissible');
+            div.classList.add('show');
+            div.classList.add('alert-success');
+            div.setAttribute('role', 'alert');
+            div.textContent = "Товар " + values[i].value + " успешно добавлен в корзину";
 
-                let button = document.createElement('button');
-                button.type = "button";
-                button.classList.add('close');
-                button.setAttribute('data-dismiss', 'alert');
-                button.setAttribute('aria-label', 'Close');
+            div.style = "position: fixed; right: 0; top: 80px; z-index: 10003";
 
-                let span = document.createElement('span');
-                span.innerHTML = "&times;";
+            let button = document.createElement('button');
+            button.type = "button";
+            button.classList.add('close');
+            button.setAttribute('data-dismiss', 'alert');
+            button.setAttribute('aria-label', 'Close');
 
-                button.appendChild(span);
+            let span = document.createElement('span');
+            span.innerHTML = "&times;";
 
-                div.appendChild(button);
+            button.appendChild(span);
 
-                document.body.appendChild(div);
-                
-            }
+            div.appendChild(button);
 
-            console.log(await orderItemrequest.json());
+            document.body.appendChild(div);
+            
         }
-        $("#white_background").hide();
-        $("#sizes_container").hide();
-        
+
+        console.log(await orderItemrequest.json());
+    }
+    $("#white_background").hide();
+    $("#sizes_container").hide();
+    
 
         
 }

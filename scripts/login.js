@@ -1,4 +1,9 @@
+
 async function login(){
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    urlParams = new URLSearchParams(queryString);
 
     let email = $("#logemail").val();
 
@@ -29,6 +34,11 @@ async function login(){
 
         await getUserDetails();
 
+        if(urlParams.get('back') == "true"){
+            history.go(-1);
+            return;
+        }
+
         window.location.replace("/pages/main_page.html");
     }
 
@@ -40,6 +50,9 @@ async function login(){
 }
 
 async function registration(){
+    const queryString = window.location.search;
+    console.log(queryString);
+    urlParams = new URLSearchParams(queryString);
 
     console.log("Asdasd");
 
@@ -74,6 +87,11 @@ async function registration(){
         await getUserDetails();
 
         console.log("Success");
+
+        if(urlParams.get('back') == "true"){
+            history.go(-1);
+            return;
+        }
 
         window.location.replace("/pages/main_page.html");
     }

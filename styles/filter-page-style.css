@@ -76,12 +76,13 @@ button.btn.btn-hide {
     color: #333;
     border: none;
     width: 40px;
-    text-align: center
+    text-align: center;
+    margin-left: 5px;
 }
 
 .pagination .page-item.active .page-link {
     background-color: #fff;
-    border: 1px solid #333
+    border: 1px solid #333;
 }
 
 select {
@@ -578,11 +579,5 @@ input[type=range]::-webkit-slider-thumb {
     .col-lg-4,
     .col-md-6 {
         padding-left: 0
-    }
-}
-
-@media(max-width: 500.5px) {
-    .pagination {
-        display: none
     }
 }
