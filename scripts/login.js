@@ -1,4 +1,9 @@
+
 async function login(){
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    urlParams = new URLSearchParams(queryString);
 
     let email = $("#logemail").val();
 
@@ -27,6 +32,13 @@ async function login(){
         sessionStorage.setItem("accessToken", data["accessToken"]);
         sessionStorage.setItem("refreshToken", data["refreshToken"]);
 
+        await getUserDetails();
+
+        if(urlParams.get('back') == "true"){
+            history.go(-1);
+            return;
+        }
+
         window.location.replace("/pages/main_page.html");
     }
 
@@ -38,6 +50,9 @@ async function login(){
 }
 
 async function registration(){
+    const queryString = window.location.search;
+    console.log(queryString);
+    urlParams = new URLSearchParams(queryString);
 
     console.log("Asdasd");
 
@@ -69,7 +84,14 @@ async function registration(){
         sessionStorage.setItem("accessToken", resultData["accessToken"]);
         sessionStorage.setItem("refreshToken", resultData["refreshToken"]);
 
+        await getUserDetails();
+
         console.log("Success");
+
+        if(urlParams.get('back') == "true"){
+            history.go(-1);
+            return;
+        }
 
         window.location.replace("/pages/main_page.html");
     }
@@ -80,3 +102,18 @@ async function registration(){
     return false;
 }
 
+async function getUserDetails(){
+    
+    let userDataResponse = await fetch("https://api.barahol.kz/account/info", {
+    method: "POST",
+        headers: {
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json;charset=utf-8",
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+        }
+    });
+
+    let userData = await userDataResponse.json();
+
+    sessionStorage.setItem('userId', userData['id']);
+}
