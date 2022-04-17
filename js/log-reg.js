@@ -14,10 +14,8 @@ $(document).ready(function(){
                 "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
             }
         });
-
+            // Информация о юзере в профиле 
         let data =  await userInfo.json();
-  
-
         $("#email").val(data['email']);
         $("#name").val(data['name'] + ' '+ data['surname'] ) ;
 
@@ -87,6 +85,7 @@ $(document).ready(function(){
         $("#log").hide();
         $("#reg").hide();
         $("#prof").show();
+        $("#cart").show();
        
     }
 
@@ -109,12 +108,14 @@ $(document).ready(function(){
         $("#log").hide();
         $("#reg").hide();
         $("#prof").show();
+        $("#cart").show();
         
      
     }else{
         $("#log").show();
         $("#reg").show();
         $("#prof").hide();
+        $("#cart").hide();
     
     }
     test();
