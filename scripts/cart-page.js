@@ -14,8 +14,14 @@ $(document).ready(function(){
         }
     })
 
-    getOrderInfo().then(addRemoveEventListener);
+    getOrderInfo().then(addRemoveEventListener).then(addImageClickEvent);
 });
+
+function addImageClickEvent(){
+    $(".img-fluid").click(function(){
+        console.log($(this).getAttribute('product-id'));
+    });
+}
 
 function addRemoveEventListener(){
     $('.close').click(function(){
@@ -110,11 +116,10 @@ async function getOrderInfo(){
 
         let img = document.createElement('img');
         img.classList.add('img-fluid');
+        img.setAttribute('product-id', data['orderItems'][i]['productId']);
 
         img.src = 'https://barahol.kz/ProductImages/' + productImage;
-        img.addEventListener('click', function(){
-            window.location = '/pages/product-page.html';
-        });
+        
 
         let title = document.createElement('div');
         title.classList.add('col');
