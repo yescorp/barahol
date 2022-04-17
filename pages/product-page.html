@@ -7,11 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+    
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/styles/header_nav.css">
     <link rel="stylesheet" href="/styles/product-page.css">
-
-
 
     <title>Product</title>
 </head>
@@ -37,6 +36,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/pages/main_page.html#footer"><i class="far fa-calendar-alt"></i>О нас</a>
                 </li>
+                
+                <li id ="cart" class="nav-item">
+                    <a class="nav-link" href="/pages/cart-page.html"><i class="far fa-copy"></i>Коризна</a>
+                </li>
                 <li id ="prof" class="nav-item">
                   <a class="nav-link" href="/pages/profile/profile_page.html"><i class="far fa-copy"></i>Профиль</a>
               </li>
@@ -49,39 +52,39 @@
             </ul>
         </div>
     </nav>
+
     <div class="super_container">
         <div class="single_product">
             <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
                 <div class="row">
-                    <div class="col-lg-2 order-lg-1 order-2">
-                        <ul class="image_list" id="image-list">
-                        </ul>
+                    <div class="col-lg-2 col-md-4 col-sm-4 order-lg-1 order-2">
+                        <div id="external-image-container">
+                            <ul class="image_list" id="image-list">
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-lg-4 order-lg-2 order-1">
+                    <div class="col-lg-4 col-md-8 col-sm-8 order-lg-2 order-1">
                         <div class="image_selected" ><img src="" id="selected-image" alt=""></div>
                     </div>
                     <div class="col-lg-6 order-3">
                         <div class="product_description">
 
-                            <div class="product_name" id="title"></div>
+
+                            <div class="row">
+                                
+                            <div class="product_name col-12" id="title"></div>
+                            
+                            <div class="col-12" id="end-date">asd</div>
+                            
+                            </div>
                             <!-- <div class="product-rating"><span class="badge badge-success"><i class="fa fa-star"></i> 4.5 Star</span> <span class="rating-review">35 Ratings & 45 Reviews</span></div> -->
                             <div> <span class="product_price" id="product-price"></span><span
                                         style='color:black; text-decoration: line-through; margin-left: 10px;' id="old-price"><span> </div>
                             <div> <span class="product_saved">Вы сохранили:</span> <span style='color:black' id="saved"><span>
                             </div>
-                            <hr class="singleline">
-
-                            <table class="sizes" id="sizes">
-                            </table>
-
-                            <div>   
-                                <span class="product_info">Заказы доставляются по сериям, указанным выше.<span><br>
-                                <span class="product_info">Чтобы сделать заказ, нажмите на подходящий, не занятый размер<span><br>
-                                <span class="small">* Если размерная сетка слишком большая, её можно листать<span><br>
                             
-                            </div>
-                            <hr class="singleline">
-                            <div id="characteristics">   
+                            <div class="mt-2" id="characteristics"> 
+                                <!-- <h5>Характеристики</h5>   -->
                                 <table class="table">
                                     <tr>
                                         <th>Серийный номер</th>
@@ -117,11 +120,28 @@
                                     </tr>
                                 </table>
                             </div>
-                            
+
+                            <button class="btn btn-success mt-2" id="order">Заказать</button>
                         </div>
                     </div>
                 </div>
 
+                <div id="sizes_container">
+                    <img width="20px" id="close_order" height="20px" style="position: absolute; right: 15px; top: 25px;" src="/assets/images/close.png"></img>
+            
+                    <div>
+                        <h5 class="mr-5">Добавить в корзину</h5>
+                        <!-- <div>   
+                            <span id="order-text" class="product_info"><span><br>
+                        </div> -->
+                        
+                        <table class="sizes mt-3 pr-3" id="sizes">
+                            
+                            
+                        </table>
+                    </div>
+                    <button class="btn btn-primary mt-2" id="add-to-cart">Добавить в корзину</button>
+                </div>
 
             </div>
         </div>
@@ -228,31 +248,30 @@
     </footer>
 
 
-    <div id="white_background"></div>
-    <div id="order-details">
+     <div id="white_background"></div>
+    <!-- <div id="order-details">
         <div  style="position: relative;">
-            <img width="20px" id="close_order" height="20px" style="position: absolute; right: -50px; top: -5px;" src="/assets/images/close.png"></img>
             <h4>Подтверждение заказа</h4>
             <div style="color: rgb(221, 221, 221);">Пожалуйста введите данные для доставки.</div>
             <hr>
-            <form action="">
+            <form action="" onsubmit="createOrder(); return false;">
                 <div class="form-group">
-                    <label for="subcategory">Размер</label> 
-                    <input type="text" id="mail-index" class="form-control" placeholder="A01Y8F5">
+                    <label for="ordered_size">Размер</label> 
+                    <input type="text" id="ordered_size" class="form-control" placeholder="">
                 </div>
 
                 <div class="form-group">
-                    <label for="subcategory">Город</label> 
-                    <input type="text" id="city" class="form-control" placeholder="Алматы">
+                    <label for="subcategory">Город*</label> 
+                    <input type="text" id="city" class="form-control" placeholder="Алматы" required>
                 </div>
                 <div class="form-group">
-                    <label for="subcategory">Почтовый индекс</label> 
-                    <input type="text" id="mail-index" class="form-control" placeholder="A01Y8F5">
+                    <label for="subcategory">Почтовый индекс*</label> 
+                    <input type="text" id="mail-index" class="form-control" placeholder="A01Y8F5" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="subcategory">Подробности адреса</label> 
-                    <textarea type="text" id="physical-address" class="form-control" placeholder="Район, улица, номер дома и квартиры"></textarea>
+                    <label for="subcategory">Подробности адреса*</label> 
+                    <textarea type="text" id="physical-address" class="form-control" placeholder="Район, улица, номер дома и квартиры" required></textarea>
                 </div>
 
                 <div class="form-group"> 
@@ -265,11 +284,11 @@
 
                 <input type="number" id="series-id" style="display: none;">
                 <input type="number" id="product-id" style="display: none;">
-            </  form>
+            </form>
         </div>
-    </div>
+    </div> -->
 
-    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
     <script src="/js/header_nav.js"></script>
     <script src="/js/log-reg.js"></script>

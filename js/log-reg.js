@@ -14,12 +14,12 @@ $(document).ready(function(){
             headers: {
                 "Accept": "application/json; charset=utf-8",
                 "Content-Type": "application/json;charset=utf-8",
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
             }
         });
 
         let data =  await userInfo.json();
-        console.log(data['email']);
+        console.log(data['id']);
 
         $("#email").val(data['email']);
         $("#name").val(data['name']);
@@ -41,7 +41,7 @@ $(document).ready(function(){
         headers: {
             "Accept": "application/json; charset=utf-8",
             "Content-Type": "application/json;charset=utf-8",
-            "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
         }
     });
 
@@ -59,15 +59,15 @@ $(document).ready(function(){
         headers: {
             "Accept": "application/json; charset=utf-8",
             "Content-Type": "application/json;charset=utf-8",
-            "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
         },
-        body: JSON.stringify({"refreshToken": localStorage.getItem("refreshToken")})
+        body: JSON.stringify({"refreshToken": sessionStorage.getItem("refreshToken")})
     });
 
     if(newTokensResponse.status == 200){
         let newTokens = await newTokensResponse.json();
-        localStorage.setItem("accessToken", newTokens["accessToken"]);
-        localStorage.setItem("refreshToken", newTokens["refreshToken"]);
+        sessionStorage.setItem("accessToken", newTokens["accessToken"]);
+        sessionStorage.setItem("refreshToken", newTokens["refreshToken"]);
         console.log("refreshed tokens");
         $("#log").hide();
         $("#reg").hide();

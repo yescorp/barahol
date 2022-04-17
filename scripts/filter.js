@@ -87,6 +87,8 @@ $(document).ready(function(){
         params += "&startPrice=" + startPrice.val();
         params += "&endPrice=" + endPrice.val();
 
+        params += "&page=1";
+
         window.location.replace("/pages/filter-page.html?" + params);
     });
 
