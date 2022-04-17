@@ -16,12 +16,11 @@ $(document).ready(function(){
         });
 
         let data =  await userInfo.json();
-        console.log(data['email']);
+  
 
         $("#email").val(data['email']);
         $("#name").val(data['name'] + ' '+ data['surname'] ) ;
 
-        console.log(data);
   }
 
   async function order(){
@@ -37,7 +36,6 @@ $(document).ready(function(){
     });
 
     let orderData = await result1.json();
-    console.log(orderData);
     for(i = 0 ; i < orderData.length ; i++){
         
         var result = await fetch("https://api.barahol.kz/order/get/" + orderData[i]['orderId'], {
@@ -49,17 +47,21 @@ $(document).ready(function(){
             }
         });
         let datas = await result.json();
-        console.log(datas);
         let table = document.getElementById('table');
-        var row = table.insertRow(i);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        cell1.innerHTML = orderData[i]['orderId'];
-        cell2.innerHTML = datas['orderedDate'];
-        cell3.innerHTML = datas['amount'];
-        cell4.innerHTML = datas['status'];
+        if( orderData[i] == null || orderData[i].length == 0){
+            return;
+        }else{
+            var row = table.insertRow(i);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            cell1.innerHTML = orderData[i]['orderId'];
+            cell2.innerHTML = datas['orderedDate'];
+            cell3.innerHTML = datas['amount'];
+            cell4.innerHTML = datas['status'];
+        }
+
     }
 
 
