@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 function addImageClickEvent(){
     $(".img-fluid").click(function(){
-        console.log($(this).getAttribute('product-id'));
+        window.location = "/pages/product-page.html?id=" + $(this).attr('product-id');
     });
 }
 
@@ -58,6 +58,7 @@ async function getOrderInfo(){
             "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
         }
     });
+
 
     let orderData = await orderResponse.json();
     console.log(orderData);

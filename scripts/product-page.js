@@ -404,14 +404,14 @@ async function createOrder(productId){
     if(orderResponse.status == 401){
         window.location = '/pages/login-page.html?back=true';
     }
+
     console.log(orderResponse);
 
-    let orderId = (await orderResponse.json())['id'];
+    let orderId = (await orderResponse.json())['orderId'];
 
     let values = $("#sizes input[type='checkbox']:checked");
 
     for(let i = 0; i < values.length; i++){
-
         console.log(values[i].value);
         console.log(values[i]);
         console.log(orderId);
@@ -432,6 +432,10 @@ async function createOrder(productId){
                 size: values[i].value
             })
         });
+
+        if(orderItemrequest.status == 401){
+            refreshTokens();
+        }
 
         if(orderItemrequest.status == 200){
             console.log("success");
