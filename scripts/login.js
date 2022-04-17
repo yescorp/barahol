@@ -24,8 +24,8 @@ async function login(){
     let data = await result.json();
 
     if(result.status == 200){
-        localStorage.setItem("accessToken", data["accessToken"]);
-        localStorage.setItem("refreshToken", data["refreshToken"]);
+        sessionStorage.setItem("accessToken", data["accessToken"]);
+        sessionStorage.setItem("refreshToken", data["refreshToken"]);
 
         window.location.replace("/pages/main_page.html");
     }
@@ -66,8 +66,8 @@ async function registration(){
     if(result.status == 200){
         let resultData = await result.json();
 
-        localStorage.setItem("accessToken", resultData["accessToken"]);
-        localStorage.setItem("refreshToken", resultData["refreshToken"]);
+        sessionStorage.setItem("accessToken", resultData["accessToken"]);
+        sessionStorage.setItem("refreshToken", resultData["refreshToken"]);
 
         console.log("Success");
 

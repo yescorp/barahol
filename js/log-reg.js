@@ -1,11 +1,8 @@
 $(document).ready(function(){
-    
 
-    
     refreshTokens();
     names();
-
-
+    order();
   });
 
   async function names(){
@@ -14,7 +11,7 @@ $(document).ready(function(){
             headers: {
                 "Accept": "application/json; charset=utf-8",
                 "Content-Type": "application/json;charset=utf-8",
-                "Authorization": "Bearer " + localStorage.getItem("accessToken")
+                "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
             }
         });
 
@@ -22,13 +19,51 @@ $(document).ready(function(){
         console.log(data['email']);
 
         $("#email").val(data['email']);
-        $("#name").val(data['name']);
-        $("#surname").val(data['surname']);
+        $("#name").val(data['name'] + ' '+ data['surname'] ) ;
 
         console.log(data);
   }
 
+  async function order(){
 
+   await refreshTokens();
+    let result1 = await fetch("https://api.barahol.kz/order/get", {
+        method: "GET",
+        headers: {
+            "Accept": "application/json; charset=utf-8",
+            "Content-Type": "application/json;charset=utf-8",
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+        }
+    });
+
+    let orderData = await result1.json();
+    console.log(orderData);
+    for(i = 0 ; i < orderData.length ; i++){
+        
+        var result = await fetch("https://api.barahol.kz/order/get/" + orderData[i]['orderId'], {
+            method: "GET",
+            headers: {
+                "Accept": "application/json; charset=utf-8",
+                "Content-Type": "application/json;charset=utf-8",
+                "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
+            }
+        });
+        let datas = await result.json();
+        console.log(datas);
+        let table = document.getElementById('table');
+        var row = table.insertRow(i);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        cell1.innerHTML = orderData[i]['orderId'];
+        cell2.innerHTML = datas['orderedDate'];
+        cell3.innerHTML = datas['amount'];
+        cell4.innerHTML = datas['status'];
+    }
+
+
+  }
 
 
 
@@ -41,7 +76,7 @@ $(document).ready(function(){
         headers: {
             "Accept": "application/json; charset=utf-8",
             "Content-Type": "application/json;charset=utf-8",
-            "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
         }
     });
 
@@ -59,15 +94,15 @@ $(document).ready(function(){
         headers: {
             "Accept": "application/json; charset=utf-8",
             "Content-Type": "application/json;charset=utf-8",
-            "Authorization": "Bearer " + localStorage.getItem("accessToken")
+            "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
         },
-        body: JSON.stringify({"refreshToken": localStorage.getItem("refreshToken")})
+        body: JSON.stringify({"refreshToken": sessionStorage.getItem("refreshToken")})
     });
 
     if(newTokensResponse.status == 200){
         let newTokens = await newTokensResponse.json();
-        localStorage.setItem("accessToken", newTokens["accessToken"]);
-        localStorage.setItem("refreshToken", newTokens["refreshToken"]);
+        sessionStorage.setItem("accessToken", newTokens["accessToken"]);
+        sessionStorage.setItem("refreshToken", newTokens["refreshToken"]);
         console.log("refreshed tokens");
         $("#log").hide();
         $("#reg").hide();
