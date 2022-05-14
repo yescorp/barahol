@@ -34,24 +34,31 @@ body {
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;
     max-height: 500px;
-    overflow-y: scroll;
 }
 
+#items-container {
+    
+    overflow-y: scroll;
+    max-height: 350px;
+}
 
+.product-img:hover{
+    cursor: pointer;
+}
 
-.cart::-webkit-scrollbar {
+#items-container::-webkit-scrollbar {
     width: 5px;
 }
 
-.cart::-webkit-scrollbar-track {
+#items-container::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
 
-.cart::-webkit-scrollbar-thumb {
+#items-container::-webkit-scrollbar-thumb {
     background: #888;
 }
 
-.cart::-webkit-scrollbar-thumb:hover {
+#items-container::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 

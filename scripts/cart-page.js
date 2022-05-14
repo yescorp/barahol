@@ -117,6 +117,7 @@ async function getOrderInfo(){
 
         let img = document.createElement('img');
         img.classList.add('img-fluid');
+        img.classList.add('product-img');
         img.setAttribute('product-id', data['orderItems'][i]['productId']);
 
         img.src = 'https://barahol.kz/ProductImages/' + productImage;
@@ -154,9 +155,9 @@ async function getOrderInfo(){
         
         container.appendChild(innerContainer);
 
-        $("#cart")[0].appendChild(container);
+        $("#items-container")[0].appendChild(container);
     }
-    $("#cart")[0].innerHTML +=  '<div class="back-to-shop"><p id="back-to-shop">&leftarrow; <span class="text-muted">Вернуться в магазин</span></p></div>';
+    //$("#cart")[0].innerHTML +=  '<div class="back-to-shop"><p id="back-to-shop-bottom">&leftarrow; <span class="text-muted">Вернуться в магазин</span></p></div>';
 }
 
 async function getCheckout(){
@@ -185,5 +186,7 @@ async function getCheckout(){
         body: JSON.stringify(bodyData)
     });
 
-    console.log(await paymentResponse.json());
+    if(paymentResponse.status == 200){
+        window.location = (await paymentResponse.json())['checkoutUrl'];
+    }
 }
