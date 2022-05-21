@@ -6,14 +6,17 @@ $(document).ready(function(){
   });
 
   async function names(){
-    let userInfo = await fetch("https://api.barahol.kz/account/info", {
+    let userInfo = await fetch("https://api.barahol.kz/account/info", 
+    {
         method: "POST",
-            headers: {
+            headers: 
+            {
                 "Accept": "application/json; charset=utf-8",
                 "Content-Type": "application/json;charset=utf-8",
                 "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
             }
-        });
+        }
+        );
             // Информация о юзере в профиле 
         let data =  await userInfo.json();
         $("#email").val(data['email']);
@@ -24,31 +27,41 @@ $(document).ready(function(){
   async function order(){
 
    await refreshTokens();
-    let result1 = await fetch("https://api.barahol.kz/order/get", {
+    let result1 = await fetch("https://api.barahol.kz/order/get", 
+    {
         method: "GET",
-        headers: {
+        headers: 
+        {
             "Accept": "application/json; charset=utf-8",
             "Content-Type": "application/json;charset=utf-8",
             "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
         }
-    });
+    }
+    );
 
     let orderData = await result1.json();
-    for(i = 0 ; i < orderData.length ; i++){
+    for(i = 0 ; i < orderData.length ; i++)
+    {
         
-        var result = await fetch("https://api.barahol.kz/order/get/" + orderData[i]['orderId'], {
+        var result = await fetch("https://api.barahol.kz/order/get/" + orderData[i]['orderId'], 
+        {
             method: "GET",
-            headers: {
+            headers: 
+            {
                 "Accept": "application/json; charset=utf-8",
                 "Content-Type": "application/json;charset=utf-8",
                 "Authorization": "Bearer " + sessionStorage.getItem("accessToken")
             }
-        });
+        }
+        );
         let datas = await result.json();
         let table = document.getElementById('table');
-        if( orderData[i] == null || orderData[i].length == 0){
+        if( orderData[i] == null || orderData[i].length == 0)
+        {
             return;
-        }else{
+        }
+        else
+        {
             var row = table.insertRow(i);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
@@ -57,10 +70,27 @@ $(document).ready(function(){
             cell1.innerHTML = orderData[i]['orderId'];
             cell2.innerHTML = datas['orderedDate'];
             cell3.innerHTML = datas['amount'];
-            cell4.innerHTML = datas['status'];
+
+            var dict = {
+                "inprocess" : 'в процессе',
+                "booked" : 'в корзине',
+                "paid" : 'оплачен',
+                "cancelled" : 'отменен',
+                "delivered" : 'доставлен',
+        
+              };
+
+            var map_output = dict[datas['status']];
+            cell4.innerHTML =map_output;
+            
         }
 
+
     }
+    // $('table > tbody  > tr > td').each(function(index, tr) { 
+    //     console.log(index);
+    //     console.log(tr);
+    //  });
 
 
   }

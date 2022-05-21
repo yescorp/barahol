@@ -26,8 +26,9 @@
 							<div class="card-3d-wrapper" >
 								<div class="card-front" >
 									<div class="center-wrap" >
-										<div class="section text-center">
+										<div id ='auth' class="section text-center">
 											<h4 class="mb-4 pb-3">Войти</h4>
+											<div id = 'wrong_text'></div>
 											<div class="form-group">
 												<input type="email" name="logemail" class="form-style" placeholder="Почтовый адрес" id="logemail" autocomplete="off">
 												<i class="input-icon uil uil-at"></i>
@@ -44,23 +45,33 @@
 									<div class="center-wrap">
 										<div class="section text-center">
 											<h4 class="mb-4 pb-3">Зарегистрироваться</h4>
+											<div id = 'wrong_textName'></div>
 											<div class="form-group">
+												
 												<input type="text" name="regname" class="form-style" placeholder="Имя" id="regname" autocomplete="off">
 												<i class="input-icon uil uil-user"></i>
 											</div>	
+											<div id = 'wrong_textSurname'></div>
 											<div class="form-group mt-2">
-												<input type="email" name="regsurname" class="form-style" placeholder="Фамилия" id="regsurname" autocomplete="off">
+												
+												<input type="text" name="regsurname" class="form-style" placeholder="Фамилия" id="regsurname" autocomplete="off">
 												<i class="input-icon uil uil-user"></i>
 											</div>	
+											<div id = 'wrong_textEmail'></div>
 											<div class="form-group mt-2">
+												
 												<input type="email" name="regemail" class="form-style" placeholder="Почтовый адрес" id="regemail" autocomplete="off">
 												<i class="input-icon uil uil-at"></i>
 											</div>	
+											<div id = 'wrong_textPass1'></div>
 											<div class="form-group mt-2">
+												
 												<input type="password" name="regpassone" class="form-style" placeholder="Пароль" id="regpassone" autocomplete="off">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
+											<div id = 'wrong_textPass2'></div>
 											<div class="form-group mt-2">
+												
 												<input type="password" name="regpasstwo" class="form-style" placeholder="Подтвердите Пароль" id="regpasstwo" autocomplete="off">
 												<i class="input-icon uil uil-lock-alt"></i>
 											</div>
