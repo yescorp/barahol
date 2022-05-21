@@ -24,7 +24,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
             <li class="nav-item">
               <a class="nav-link" href="/pages/main_page.html#hot"><i class=""></i>Горячие предложения</a>
           </li>
@@ -35,10 +34,10 @@
               <a class="nav-link" href="/pages/main_page.html#season"><i class=""></i>Сезоны</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/pages/main_page.html#footer"><i class=""></i>О нас</a>
+              <a class="nav-link" href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=male,female,kids,unisex&startPrice=0&endPrice=100000&page=1&limit=16"><i class=""></i>Каталог</a>
           </li>
           <li id ="cart" class="nav-item">
-            <a class="nav-link" href="/pages/cart-page.html?back=true"><i class=""></i>Коризна</a>
+            <a class="nav-link" href="/pages/cart-page.html?back=true"><i class=""></i>Корзина</a>
         </li>
           <li id ="prof" class="nav-item">
             <a class="nav-link" href="/pages/profile/profile_page.html"><i class=""></i>Профиль</a>
@@ -48,6 +47,7 @@
           </li>
           <li id ="reg" class="nav-item">
               <a class="nav-link" href="/pages/login-page.html"><i class=""></i>Регистрация</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -61,7 +61,7 @@
         <div class="bg-white rounded d-flex align-items-center justify-content-between" id="header">
             <button class="btn btn-hide text-uppercase" type="button" data-toggle="collapse" data-target="#filterbar" aria-expanded="false" aria-controls="filterbar" id="filter-btn"> 
               <span class="fas fa-angle-left" id="filter-angle"></span> 
-              <span id="btn-txt">Свернуть фильтры</span> 
+              <span id="btn-txt">Показать фильтры</span> 
             </button>
         </div>
         <div id="content" class="my-5">
@@ -69,6 +69,7 @@
                 <div class="box border-bottom">
                     <div class="form-group text-center">
                       <button class="btn btn-primary" id="apply_filters">Применить фильтры</button>
+                      
                     </div>
                     <div class="box-label text-uppercase d-flex align-items-center">Категория<button class="btn ml-auto box-label text-uppercase d-flex align-items-center" type="button" data-toggle="collapse" data-target="#category-inner-box" aria-expanded="false" aria-controls="inner-box"onclick="outerFilter()"> <span class="fas fa-plus plus_button">+</span></button> </div>
                     <div id="category-inner-box" class="collapse">
@@ -133,7 +134,13 @@
                         </div>
                     </div>
                   -->
+                  <div class="form-group text-center">
+                    <button class="btn btn-danger" id="reset_filters">Сбросить фильтры</button>
+                    
+                  </div>
+                  
             </div>
+            
             
         </div>
     </div>

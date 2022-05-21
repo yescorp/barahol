@@ -1,6 +1,20 @@
 var urlParams;
 var checkboxes = [];
 var products;
+let russianSeasons = {
+    "winter": "Зима",
+    "summer": "Лето",
+    "fall": "Осень",
+    "spring": "Весна",
+    "multiseason": "Мультисезон",
+    "demiseason": "Демисезон",
+    "Зима" :"winter",
+    "Лето": "summer",
+    "Осень": "fall",
+    "Весна": "spring",
+    "Мультисезон": "multiseason",
+    "Демисезон": "demiseason"
+};
 
 $(document).ready(function(){
 
@@ -92,6 +106,10 @@ $(document).ready(function(){
         window.location = "/pages/filter-page.html?" + params;
     });
 
+    $("#reset_filters").on("click", function(){
+        window.location = "/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=male,female,kids,unisex&startPrice=0&endPrice=100000&page=1&limit=16";
+    });
+
     let finalParams = "";
 
     const queryString = window.location.search;
@@ -162,6 +180,35 @@ $(document).ready(function(){
 
         setLeftValue();
         setRightValue();
+    }
+    catch(e){}
+
+    try {
+        const season = urlParams.get("seasons").replace(",", "");
+
+        finalParams += "&season=" + season;
+    }
+    catch(e){}
+
+    try {
+        const subcategories = urlParams.get("subcategories").split(",");
+        if(subcategories.length != 0 && subcategories[0] != ""){
+            for(let i = 0; i < subcategories.length; i++)
+            {    
+                finalParams += "&subcategories=" + subcategories[i];
+            }            
+        }
+
+    }
+    catch(e){}
+
+    try{
+        
+        let startPrice = $("#input-left");
+        let endPrice = $("#input-right");
+
+        finalParams += "&startPrice=" + startPrice.val();
+        finalParams += "&endPrice=" + endPrice.val();
     }
     catch(e){}
 
@@ -303,7 +350,7 @@ function displayProducts(products){
 
             let first_part = document.createElement("div");
             first_part.classList.add("part-1");
-            first_part.style = "background: url('https://barahol.kz/ProductImages/" + products[j]["productImages"][0]['imageSource'] + "') no-repeat center; background-size: cover;";
+            first_part.style = "background: url('https://barahol.kz/ProductImages/" + products[j]["productImages"][0]['imageSource'] + "') no-repeat center; background-size: contain;";
             
             div2.appendChild(first_part);
 
@@ -317,11 +364,11 @@ function displayProducts(products){
             title.classList.add("product-title");
 
             let old_price = document.createElement("h4");
-            old_price.textContent =  products[j]['salesPrice'] + "₸";
+            old_price.textContent =  products[j]['price'] + "₸";
             old_price.classList.add("product-old-price");
 
             let price = document.createElement("h4");
-            price.textContent = products[j]['price'] + "₸";
+            price.textContent = products[j]['salesPrice'] + "₸";
             price.classList.add("product-price");
 
             second.appendChild(title);
@@ -405,8 +452,10 @@ async function createSeasonOptions(){
 
     console.log(data);
 
+    
+
     for(let i = 0; i < data["seasons"].length; i++){
-        createOption($("#season-inner-box"), data["seasons"][i]);
+        createSeasonOption($("#season-inner-box"), data["seasons"][i], russianSeasons[data["seasons"][i]]);
     }
 }
 
@@ -420,8 +469,47 @@ function createOption(parent, value){
 
     let optionCheckbox = document.createElement("input");
     optionCheckbox.type = "checkbox";
+    
     optionCheckbox.value = value;
     optionCheckbox.classList.add("generated");
+
+    checkboxes.push(optionCheckbox);
+
+    optionSpan = document.createElement("span");
+    optionSpan.classList.add("check");
+
+    optionDiv.append(optionLabel);
+    optionLabel.append(optionCheckbox);
+    optionLabel.append(optionSpan);
+
+    parent.append(optionDiv);
+}
+
+function createSeasonOption(parent, value, title){
+    let optionDiv = document.createElement("div");
+    optionDiv.classList.add("my-1");
+
+    let optionLabel = document.createElement("label");
+    optionLabel.classList.add("tick");
+    optionLabel.innerText = title;
+
+    let optionCheckbox = document.createElement("input");
+    optionCheckbox.type = "radio";
+    optionCheckbox.setAttribute("radiogroup", "season");
+    
+    optionCheckbox.value = value;
+    optionCheckbox.classList.add("generated");
+
+    optionCheckbox.addEventListener("click", function(){
+        
+        let other = $("input[type=radio]");
+        for(let i =0; i < other.length; i++){
+            if(other[i].value != this.value){
+                console.log(other[i].value);
+                other[i].checked = false;
+            }
+        }
+    });
 
     checkboxes.push(optionCheckbox);
 

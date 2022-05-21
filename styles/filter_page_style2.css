@@ -139,3 +139,7 @@ a:hover {
     background-color: #444444;
     transform: translateY(-50%);
 }
+
+#reset_filters {
+    margin: 5px auto;
+}

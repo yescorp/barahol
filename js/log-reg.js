@@ -69,6 +69,13 @@ $(document).ready(function(){
 
   async function refreshTokens(){
     
+    if(sessionStorage.getItem("accessToken") == null || sessionStorage.getItem("accessToken") == undefined){
+        $("#log").show();
+        $("#reg").show();
+        $("#prof").hide();
+        $("#cart").hide();
+        return;
+    }
 
 
     let checkToken = await fetch("https://api.barahol.kz/account/info", {
@@ -118,7 +125,6 @@ $(document).ready(function(){
         $("#cart").hide();
     
     }
-    test();
 }
 
 

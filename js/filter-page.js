@@ -1,29 +1,19 @@
 // For Filters
 var count = 0, count2 = 0;
-var collapsed = false;
+var collapsed = true;
 document.addEventListener("DOMContentLoaded", function() {
     var filterBtn = document.getElementById('filter-btn');
     var btnTxt = document.getElementById('btn-txt');
     var filterAngle = document.getElementById('filter-angle');
     
-    $('#filterbar').collapse(false);
-
-    btnTxt.addEventListener("click", function(){
-        
+    btnTxt.addEventListener("click", function(){    
         if(!collapsed){
-            
             $('#filterbar').collapse(true);
-            filterAngle.classList.remove("fa-angle-right")
-            btnTxt.innerText = "Свернуть фильтры"
-            filterBtn.style.backgroundColor = "#ff935d";
-            collapsed = true;
+            
         }
         else {
             $('#filterbar').collapse(false);
-            filterAngle.classList.add("fa-angle-right");
-            btnTxt.innerText = "Показать фильтры"
-            filterBtn.style.backgroundColor = "#36a31b";
-            collapsed = false;
+            
         }
         console.log(collapsed);
     });

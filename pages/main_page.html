@@ -24,7 +24,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
             <li class="nav-item">
               <a class="nav-link" href="/pages/main_page.html#hot"><i class=""></i>Горячие предложения</a>
           </li>
@@ -35,10 +34,10 @@
               <a class="nav-link" href="/pages/main_page.html#season"><i class=""></i>Сезоны</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="/pages/main_page.html#footer"><i class=""></i>О нас</a>
+              <a class="nav-link" href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=male,female,kids,unisex&startPrice=0&endPrice=100000&page=1&limit=16"><i class=""></i>Каталог</a>
           </li>
           <li id ="cart" class="nav-item">
-            <a class="nav-link" href="/pages/cart-page.html?back=true"><i class=""></i>Коризна</a>
+            <a class="nav-link" href="/pages/cart-page.html?back=true"><i class=""></i>Корзина</a>
         </li>
           <li id ="prof" class="nav-item">
             <a class="nav-link" href="/pages/profile/profile_page.html"><i class=""></i>Профиль</a>
@@ -48,6 +47,7 @@
           </li>
           <li id ="reg" class="nav-item">
               <a class="nav-link" href="/pages/login-page.html"><i class=""></i>Регистрация</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -206,7 +206,7 @@
   <div class="row scrolling-wrapper-flexbox pb-5 mb-4">
     <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item first-item">
       <!-- Card-->
-      <a href="/pages/filter-page.html?clothes=true&shoes=true&accessories=true&gender=female&page=1" class="text-dark">
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=female&startPrice=0&endPrice=100000&page=1&limit=16" class="text-dark">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://i.pinimg.com/564x/76/6b/5a/766b5a5b5a4f94b122ddad591a2368df.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> Для женщин</h5>
@@ -224,7 +224,7 @@
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item">
       <!-- Card-->
-      <a href="/pages/filter-page.html?clothes=true&shoes=true&accessories=true&gender=male&page=1" class="text-dark">
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=male&startPrice=0&endPrice=100000&page=1&limit=16" class="text-dark">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://avatars.mds.yandex.net/get-zen_doc/1540250/pub_5d78e7c9a3f6e400c277d0bb_5d78e7d306cc4600ae57a1e9/scale_1200" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> Для мужчин</h5>
@@ -243,7 +243,7 @@
 
     <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item">
       <!-- Card-->
-      <a href="/pages/filter-page.html?clothes=true&shoes=true&accessories=true&gender=kids&page=1" class="text-dark">
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=kids&startPrice=0&endPrice=100000&page=1&limit=16" class="text-dark">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://static.insales-cdn.com/r/DiIuvq9rjuE/rs:fit:600:0:1/plain/images/products/1/4698/522130010/GD122.103386_%D1%82.%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D1%8B%D0%B9_3.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> Для детей</h5>
@@ -262,7 +262,7 @@
     
     <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 scrolling-item">
       <!-- Card-->
-      <a href="/pages/filter-page.html?clothes=true&shoes=true&accessories=true&gender=unisex&page=1" class="text-dark">
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=unisex&startPrice=0&endPrice=100000&page=1&limit=16" class="text-dark">
         <div class="card rounded shadow-sm border-0">
           <div class="card-body p-4"><img src="https://its-wear.ru/image/cache/catalog/hudi/komplekt/A9_01633-600x900.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
             <h5>Одежда Унисекс</h5>
@@ -291,6 +291,7 @@
   <div class="row scrolling-wrapper-flexbox pb-5 mb-4">
     <div class="col-lg-3 col-md-6 col-sm-6 col-3 mb-4 mb-lg-0 first-item scrolling-item">
       <!-- Card-->
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=female,male,kids,unisex&seasons=winter&startPrice=0&endPrice=100000&page=1&limit=16">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://www.pokupkalux.ru/upload/catalog_images/M11_beg/M11_beg01.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> <a href="#" class="text-dark">Зима</a></h5>
@@ -304,10 +305,12 @@
           </ul>
         </div>
       </div>
+      </a>
     </div>
 
     <div class="col-lg-3 col-md-6 col-sm-6 mb-4 col-3 mb-lg-0 scrolling-item">
       <!-- Card-->
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=female,male,kids,unisex&seasons=spring&startPrice=0&endPrice=100000&page=1&limit=16">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://optomby.com/wp-content/uploads/2019/09/7159397-4.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> <a href="#" class="text-dark">Весна</a></h5>
@@ -321,10 +324,12 @@
           </ul>
         </div>
       </div>
+      </a>
     </div>
 
     <div class="col-lg-3 col-md-6 col-sm-6 mb-4 col-3 mb-lg-0 scrolling-item">
       <!-- Card-->
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=female,male,kids,unisex&seasons=summer&startPrice=0&endPrice=100000&page=1&limit=16">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://moddam.ru/wp-content/uploads/2020/02/dlya-vseh4.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> <a href="#" class="text-dark">Лето</a></h5>
@@ -338,10 +343,12 @@
           </ul>
         </div>
       </div>
+      </a>
     </div>
 
     <div class="col-lg-3 col-md-6 col-sm-6 mb-4 col-3 mb-lg-0 scrolling-item">
       <!-- Card-->
+      <a href="/pages/filter-page.html?clothes=true&accessories=true&shoes=true&gender=female,male,kids,unisex&seasons=fall&startPrice=0&endPrice=100000&page=1&limit=16">
       <div class="card rounded shadow-sm border-0">
         <div class="card-body p-4"><img src="https://sc01.alicdn.com/kf/HTB1vd06bkfb_uJkSnfoq6z_epXav/229758845/HTB1vd06bkfb_uJkSnfoq6z_epXav.jpg" alt="" class="img-fluid d-block mx-auto mb-3">
           <h5> <a href="#" class="text-dark">Осень</a></h5>
@@ -355,6 +362,7 @@
           </ul>
         </div>
       </div>
+      </a>
     </div>
   </div>
 </div>

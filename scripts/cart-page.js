@@ -85,6 +85,8 @@ async function getOrderInfo(){
     
     let productCache = [];
 
+    let totalPrice = 0;
+
     for(let i = 0; i < data['orderItems'].length; i++){
 
         let productImage;
@@ -156,7 +158,11 @@ async function getOrderInfo(){
         container.appendChild(innerContainer);
 
         $("#items-container")[0].appendChild(container);
+
+        totalPrice += data['orderItems'][i]['actualPrice'];
     }
+
+    $("#totalPrice").text(totalPrice + "₸");
     //$("#cart")[0].innerHTML +=  '<div class="back-to-shop"><p id="back-to-shop-bottom">&leftarrow; <span class="text-muted">Вернуться в магазин</span></p></div>';
 }
 
